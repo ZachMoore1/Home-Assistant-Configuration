@@ -11,7 +11,7 @@ homeassistant:
   elevation: !secret config_elevation
   unit_system: imperial
   time_zone: !secret config_time_zone
-  customize: !include_dir_merge_list customize/
+  customize: !include_dir_merge_named customize/
 
 recorder:
   db_url: !secret database_url
