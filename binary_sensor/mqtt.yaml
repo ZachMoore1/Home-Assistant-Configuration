@@ -13,3 +13,8 @@
   name: "Back Yard Motion"
   state_topic: "back_yard_pi/motion"
   sensor_class: motion
+  
+- platform: mqtt
+  name: "Kitchen Motion"
+  state_topic: "kitchen_pi/motion"
+  sensor_class: motion
