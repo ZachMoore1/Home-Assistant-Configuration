@@ -33,3 +33,4 @@ security_view_sensors:
   - binary_sensor.front_yard_motion
   - binary_sensor.motion_02_sensor_15_0
   - binary_sensor.motion_sensor_2_0
+  - binary_sensor.kitchen_motion
