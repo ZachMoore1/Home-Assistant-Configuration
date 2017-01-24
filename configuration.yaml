@@ -172,12 +172,12 @@ automation: !include_dir_merge_list automation/
 binary_sensor: !include_dir_merge_list binary_sensor/
 camera: !include misc/cameras.yaml
 device_tracker: !include misc/device_trackers.yaml
-group: !include_dir_merge_list group/
+group: !include_dir_merge_named group/
 input_boolean: !include misc/input_booleans.yaml
 input_select: !include misc/input_select.yaml
 input_slider: !include misc/input_sliders.yaml
 media_player: !include misc/media_players.yaml
 scene: !include_dir_merge_list scene/
-script: !include_dir_merge_list script/
+script: !include_dir_merge_named script/
 sensor: !include_dir_merge_list sensor/
 switch: !include_dir_merge_list switch/
