@@ -31,6 +31,7 @@ kitchen_view_group:
     - binary_sensor.kitchen_occupancy
     - sensor.kitchen_temp
     - binary_sensor.motion_sensor_2_0
+    - binary_sensor.kitchen_motion
     - switch.kitchen_switch_10_0
     - light.flux_kitchen_light
 
