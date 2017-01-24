@@ -1,9 +1,9 @@
 #!/bin/bash
 
-echo "config_latitude: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
-echo "config_longitude: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
-echo "config_elevation: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
-echo "config_time_zone: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
+echo "config_latitude: 32.87336" >> $TRAVIS_BUILD_DIR/secrets.yaml
+echo "config_longitude: 117.22743" >> $TRAVIS_BUILD_DIR/secrets.yaml
+echo "config_elevation: 430" >> $TRAVIS_BUILD_DIR/secrets.yaml
+echo "config_time_zone: America/Los_Angeles" >> $TRAVIS_BUILD_DIR/secrets.yaml
 echo "http_password: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
 echo "database_url: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
 echo "alarm_code: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml

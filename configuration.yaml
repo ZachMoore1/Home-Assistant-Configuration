@@ -11,7 +11,7 @@ homeassistant:
   elevation: !secret config_elevation
   unit_system: imperial
   time_zone: !secret config_time_zone
-  customize: !include_dir_named customize/
+  customize: !include_dir_merge_list customize/
 
 recorder:
   db_url: !secret database_url
@@ -167,16 +167,16 @@ zwave:
 ############################################################
 
 alexa: !include misc/alexa.yaml
-automation: !include_dir_named automation/
-binary_sensor: !include_dir_named binary_sensor/
+automation: !include_dir_merge_list automation/
+binary_sensor: !include_dir_merge_list binary_sensor/
 camera: !include misc/cameras.yaml
 device_tracker: !include misc/device_trackers.yaml
-group: !include_dir_named group/
+group: !include_dir_merge_list group/
 input_boolean: !include misc/input_booleans.yaml
 input_select: !include misc/input_select.yaml
 input_slider: !include misc/input_sliders.yaml
 media_player: !include misc/media_players.yaml
-scene: !include_dir_named scene/
-script: !include_dir_named script/
-sensor: !include_dir_named sensor/
-switch: !include_dir_named switch/
+scene: !include_dir_merge_list scene/
+script: !include_dir_merge_list script/
+sensor: !include_dir_merge_list sensor/
+switch: !include_dir_merge_list switch/
