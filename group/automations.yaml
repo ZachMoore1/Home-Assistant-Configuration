@@ -8,56 +8,22 @@ automation_view:
   view: yes
   entities:
     - group.automation_view_general_automations
-    - group.automation_view_general_light_automations
-    - group.automation_view_media_player_automations
     - group.automation_view_notification_automations
-    - group.automation_view_presence_status_automations
 
 automation_view_general_automations:
   name: "General Automations"
   control: hidden
   entities:
-    - automation.zwave_heal_zwave_nightly
-    - automation.dash_buttons_a_pressed
-    - automation.dash_buttons_b_pressed  
-    - automation.alarm_trigger_alarm_while_armed_away
-
-automation_view_general_light_automations:
-  name: "General Light Automations"
-  control: hidden
-  entities:
-    - automation.sun_turn_off_lights_during_the_day
-    - automation.sun_turn_off_all_lights_if_nobody_is_home
-
-automation_view_media_player_automations:
-  name: "Media Player Automations"
-  control: hidden
-  entities:
-    - automation.media_xbox_paused
-    - automation.media_xbox_playing
-    - automation.media_xbox_stopped
-    - automation.media_xbox_stopped_late
+    - automation.heal_zwave_nightly
+    - automation.trigger_alarm_while_armed_away
 
 automation_view_notification_automations:
   name: "Notification Automations"
   control: hidden
   entities:
-    - automation.front_door_notify_when_front_door_is_locked
-    - automation.front_door_notify_when_front_door_is_unlocked
-    - automation.doorbell_send_snapshot_when_doorbell_rings
-    - automation.doorbell_preview_camera_on_kodi_when_doorbell_rings
-    - automation.doorbell_notify_kodi_when_doorbell_rings
+    - automation.notify_when_front_door_is_locked
+    - automation.notify_when_front_door_is_unlocked
+    - automation.send_snapshot_when_doorbell_rings
+    - automation.preview_camera_on_kodi_when_doorbell_rings
+    - automation.notify_kodi_when_doorbell_rings
 
-automation_view_presence_status_automations:
-  name: "Presence Automations"
-  control: hidden
-  entities:
-    - automation.presence_set_mynt_trackers_state_to_away_after_5_minutes
-    - automation.presence_set_jphones_state_to_away_after_5_minutes
-    - automation.presence_set_zphones_state_to_away_after_5_minutes
-    - automation.presence_set_mynt_trackers_state_to_home
-    - automation.presence_set_jphones_state_to_home
-    - automation.presence_set_zphones_state_to_home
-    - input_boolean.mynt_tracker_away_status
-    - input_boolean.jphone_away_status
-    - input_boolean.zphone_away_status

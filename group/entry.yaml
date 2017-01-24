@@ -15,12 +15,9 @@ entry_view_door_lock_automations:
   name:  "Door Lock Automations"
   control: hidden
   entities:
-    - automation.presence_unlock_front_door_for_5_minutes_on_mynt_tracker_arrival
-    - automation.presence_unlock_front_door_for_5_minutes_on_jphone_arrival
-    - automation.presence_unlock_front_door_for_5_minutes_on_zphone_arrival
-    - automation.front_door_lock_front_door_after_5_minutes_after_being_unlocked
-    - automation.front_door_sync_lockunlock_state
-    - automation.presence_lock_the_front_door_if_nobody_is_home
+    - automation.unlock_front_door_when_arriving_home
+    - automation.start_lock_timer_when_door_unlocked
+    - automation.sync_lock_state
 
 entry_view_group:
   name:  "Entry"
@@ -34,5 +31,5 @@ entry_view_light_automations:
   name:  "Entry Light Automations"
   control: hidden
   entities:
-    - automation.front_door_turn_on_entry_light_dimmed_when_door_is_unlocked
-    - automation.front_door_turn_on_entry_light_when_door_is_unlocked
+    - automation.turn_on_entry_light_dimmed_when_door_is_unlocked
+    - automation.turn_on_entry_light_when_door_is_unlocked

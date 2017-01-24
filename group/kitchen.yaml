@@ -15,14 +15,10 @@ kitchen_view_accent_light_automations:
   name:  "Kitchen Accent Light Automations"
   control: hidden
   entities:
-    - automation.motion_sensor_turn_on_kitchen_lights_when_there_is_movement
-    - automation.motion_sensor_turn_on_kitchen_lights_dimmed_when_there_is_movement
-    - automation.front_door_turn_on_kitchen_lights_when_door_is_unlocked
-    - automation.front_door_turn_on_kitchen_lights_dimmed_when_door_is_unlocked
-    - automation.motion_sensor_turn_on_kitchen_lights_when_there_is_movement_hallway
-    - automation.motion_sensor_turn_on_kitchen_lights_dimmed_when_there_is_movement_hallway
-    - automation.motion_sensor_turn_off_kitchen_lights_when_there_is_no_movement
-    - automation.motion_sensor_turn_off_kitchen_lights_when_there_is_no_occupancy
+    - automation.turn_on_kitchen_accent_light_when_door_unlocked_or_motion_detected
+    - automation.turn_on_kitchen_accent_light_dimmed_when_door_unlocked_or_motion_detected
+    - automation.turn_off_kitchen_accent_light_when_there_is_no_movement
+    - automation.turn_off_kitchen_accent_light_when_there_is_no_occupancy
 
 kitchen_view_group:
   name:  "Kitchen"
@@ -39,6 +35,8 @@ kitchen_view_light_automations:
   name:  "Kitchen Light Automations"
   control: hidden
   entities:
-    - automation.lights_turn_back_on_kitchen_accent_light_dimmed_when_the_kitchen_switch_is_turned_off
-    - automation.lights_turn_back_on_kitchen_accent_light_when_the_kitchen_switch_is_turned_off
-    - automation.lights_turn_off_kitchen_accent_light_when_the_kitchen_switch_is_turned_on
+    - automation.turn_on_kitchen_accent_light_when_kitchen_switch_turns_off
+    - automation.turn_on_kitchen_accent_light_dimmed_when_kitchen_switch_turns_off
+    - automation.turn_off_kitchen_accent_light_when_kitchen_switch_turns_on
+    - automation.turn_off_kitchen_light_when_there_is_no_movement
+    - automation.turn_off_kitchen_light_when_there_is_no_occupancy

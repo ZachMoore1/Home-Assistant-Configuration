@@ -21,7 +21,7 @@ scenes_view_bedroom:
   entities:
     - scene.bedroom_off
     - scene.bedroom_dim
-    - scene.bedroom_normal
+    - scene.bedroom_full
     - input_slider.bedroom_brightness
 
 scenes_view_front_porch:
@@ -29,7 +29,7 @@ scenes_view_front_porch:
   entities:
     - scene.front_porch_off
     - scene.front_porch_dim
-    - scene.front_porch_normal
+    - scene.front_porch_full
     - input_slider.front_porch_brightness
 
 scenes_view_garage:
@@ -37,7 +37,7 @@ scenes_view_garage:
   entities:
     - scene.garage_off
     - scene.garage_dim
-    - scene.garage_normal
+    - scene.garage_full
     - input_slider.garage_brightness
 
 scenes_view_hallway:
@@ -45,7 +45,7 @@ scenes_view_hallway:
   entities:
     - scene.hallway_off
     - scene.hallway_dim
-    - scene.hallway_normal
+    - scene.hallway_full
     - input_slider.hallway_brightness
 
 scenes_view_entry:
@@ -53,20 +53,20 @@ scenes_view_entry:
   entities:
     - scene.entry_off
     - scene.entry_dim
-    - scene.entry_normal
+    - scene.entry_full
     - input_slider.entry_brightness
 
 scenes_view_back_patio:
   name: "Back Patio"
   entities:
     - scene.back_patio_off
-    - scene.back_patio_normal
+    - scene.back_patio_full
 
 scenes_view_kitchen:
   name: "Kitchen"
   entities:
     - scene.kitchen_off
-    - scene.kitchen_normal
+    - scene.kitchen_full
 
 scenes_view_kitchen_accent:
   name: "Kitchen Accent"

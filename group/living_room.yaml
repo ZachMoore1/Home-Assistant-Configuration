@@ -14,8 +14,8 @@ living_room_view_hallway_light_automations:
   name:  "Hallway Light Automations"
   control: hidden
   entities:
-    - automation.lr_turn_on_hallway_light_dimmed_when_there_is_movement
-    - automation.lr_turn_off_hallway_light_dimmed_when_there_is_no_movement
+    - automation.turn_on_hallway_light_dimmed_when_there_is_movement
+    - automation.turn_off_hallway_light_when_there_is_no_movement
 
 living_room_view_group:
   name:  "Living Room"
@@ -28,10 +28,3 @@ living_room_view_group:
     - binary_sensor.back_door_sensor_14_0
     - switch.back_patio_switch_11_0
     - sensor.tv_living_room_state
-
-living_room_hallway_light_automations:
-  name:  "Hallway Light Automations"
-  control: hidden
-  entities:
-    - automation.turn_on_hallway_light_dimmed_when_there_is_movement
-    - automation.turn_off_hallway_light_dimmed_when_there_is_no_movement

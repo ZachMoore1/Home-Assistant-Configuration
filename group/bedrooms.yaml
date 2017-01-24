@@ -7,7 +7,7 @@
 bedrooms_view:
   view: yes
   entities:
-    - group.bedrooms_view_master_bedroom
+    - group.bedrooms_view_master
     - group.bedrooms_view_master_bedroom_light_automations
     - group.bedrooms_view_bedroom
     - group.bedrooms_view_back_bedroom
@@ -16,8 +16,8 @@ bedrooms_view:
 bedrooms_view_back_bedroom:
   name: !secret back_bedroom_name
   entities:
-    - binary_sensor.bedroom__back_bedroom_occupancy
-    - sensor.back_bedroom_temperature
+    - binary_sensor.back_bedroom_occupancy
+    - sensor.back_bedroom_temperature_2
 
 bedrooms_view_harmony_control:
   name:  "Harmony Control"
@@ -31,8 +31,8 @@ bedrooms_view_harmony_control:
 bedrooms_view_bedroom:
   name: !secret bedroom_name
   entities:
-    - binary_sensor.bedroom__bedroom_occupancy
-    - sensor.bedroom_temperature
+    - binary_sensor.bedroom_occupancy
+    - sensor.bedroom_temperature_2
 
 bedrooms_view_master:
   name: !secret master_bedroom_name
@@ -52,7 +52,7 @@ bedrooms_view_master_bedroom_light_automations:
   name:  !secret master_bedroom_light_automation_name
   control: hidden
   entities:
-    - automation.sun_turn_on_bedroom_light_at_sunset
-    - automation.presence_turn_on_bedroom_light_when_zphone_gets_home
-    - automation.presence_turn_off_bedroom_light_when_zphone_is_away
-    - automation.sun_turn_on_bedroom_light_if_overcast
+    - automation.turn_on_bedroom_light_at_sunset
+    - automation.turn_on_bedroom_light_when_zphone_gets_home
+    - automation.turn_off_bedroom_light_when_zphone_leaves
+    - automation.turn_on_bedroom_light_if_overcast

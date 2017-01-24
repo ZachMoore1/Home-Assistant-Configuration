@@ -8,38 +8,16 @@ outside_view:
   view: yes
   entities:
     - group.outside_view_group
-    - group.outside_view_back_patio_light_automations
-    - group.outside_view_front_porch_light_automations
-    - group.outside_view_garage_light_automations
+    - group.outside_view_outside_light_automations
 
-outside_view_back_patio_light_automations:
-  name:  "Back Patio Light Automations"
+outside_view_outside_light_automations:
+  name:  "Outside Light Automations"
   control: hidden
   entities:
-    - automation.back_door_turn_on_back_patio_switch_when_back_door_is_opened
-
-outside_view_front_porch_light_automations:
-  name:  "Front Porch Light Automations"
-  control: hidden
-  entities:
-    - automation.motion_sensor_turn_on_outside_lights_when_motion_is_detected_at_front_door
-    - automation.presence_turn_on_front_porch_light_for_5_minutes_on_jphone_arrival
-    - automation.front_door_turn_on_front_porch_light_for_5_minutes_when_door_is_unlocked
-    - automation.presence_turn_on_front_porch_light_for_5_minutes_on_mynt_tracker_arrival
-    - automation.presence_turn_on_front_porch_light_for_5_minutes_on_zphone_arrival
-
-outside_view_garage_light_automations:
-  name:  "Garage Light Automations"
-  control: hidden
-  entities:
-    - automation.front_door_turn_on_garage_south_light_for_5_minutes_when_door_is_unlocked
-    - automation.presence_turn_on_garage_south_light_for_5_minutes_on_zphone_arrival
-    - automation.presence_turn_on_garage_south_light_for_5_minutes_on_jphone_arrival
-    - automation.presence_turn_on_garage_south_light_for_5_minutes_on_mynt_tracker_arrival
-    - automation.front_door_turn_on_garage_north_light_for_5_minutes_when_door_is_unlocked
-    - automation.presence_turn_on_garage_north_light_for_5_minutes_on_zphone_arrival
-    - automation.presence_turn_on_garage_north_light_for_5_minutes_on_mynt_tracker_arrival
-    - automation.presence_turn_on_garage_north_light_for_5_minutes_on_jphone_arrival
+    - automation.turn_on_back_patio_switch_when_back_door_is_opened
+    - automation.turn_on_front_porch_light_when_motion_is_detected_at_front_door
+    - automation.turn_on_outside_lights_for_5_minutes_when_arriving_home
+    - automation.turn_on_outside_lights_for_5_minutes_when_door_is_unlocked
 
 outside_view_group:
   name:  "Outside"
