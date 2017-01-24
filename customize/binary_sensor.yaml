@@ -60,3 +60,8 @@ binary_sensor.front_door_motion:
 binary_sensor.front_yard_motion:
   icon: mdi:video
   sensor_class: motion
+  
+binary_sensor.kitchen_motion:
+  friendly_name: 'Kitchen Motion'
+  icon: mdi:run
+  sensor_class: motion
