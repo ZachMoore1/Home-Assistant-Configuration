@@ -1,0 +1,89 @@
+############################################################
+#
+# System Monitoring View
+#
+############################################################
+
+system_monitoring_view:
+  view: yes
+  entities:
+    - group.system_monitoring_view_battery_sensors
+    - group.system_monitoring_view_beast_server
+    - group.system_monitoring_view_raspberry_pi
+    - group.system_monitoring_view_network
+    - group.system_monitoring_view_links
+    - group.system_monitoring_view_sonarr_monitor
+    - group.system_monitoring_view_plex_monitor
+    - group.system_monitoring_view_nzbget_monitor
+
+system_monitoring_view_battery_sensors:
+  name:  "Battery Sensors"
+  entities:
+    - sensor.front_door_lock_battery
+    - sensor.motion_sensor_battery
+    - sensor.motion_sensor_02_battery
+    - sensor.back_door_sensor_battery
+    - sensor.doorbell_sensor_battery
+
+system_monitoring_view_beast_server:
+  name:  "Beast Server"
+  entities:
+    - sensor.beast_server_cpu_usage
+    - sensor.beast_server_disk_usage
+    - sensor.beast_server_ram_usage
+    - sensor.beast_server_swap_usage
+    - sensor.beast_server_running_count
+
+system_monitoring_view_links:
+  name:  "Links"
+  entities:
+    - weblink.couchpotato
+    - weblink.front_door_camera
+    - weblink.front_yard_camera
+    - weblink.headphones
+    - weblink.motioneye
+    - weblink.nzbget
+    - weblink.plex
+    - weblink.plexpy
+    - weblink.sonarr
+    - weblink.unraid_server
+
+system_monitoring_view_network:
+  name:  "Network"
+  entities:
+    - sensor.speedtest_ping
+    - sensor.speedtest_download
+    - sensor.speedtest_upload
+
+system_monitoring_view_nzbget_monitor:
+  name:  "NZBGet Monitor"
+  entities:
+    - sensor.nzbget_status_download_paused
+    - sensor.nzbget_status_queue_size
+    - sensor.nzbget_status_download_size
+    - sensor.nzbget_status_remaining_size
+    - sensor.nzbget_status_speed
+
+system_monitoring_view_plex_monitor:
+  name:  "Plex Monitor"
+  entities:
+    - sensor.plex
+    - sensor.plex_state_z
+    - sensor.plex_state_remote
+    - sensor.plex_state_j
+    - sensor.plex_state_g
+
+system_monitoring_view_raspberry_pi:
+  name:  "Raspberry Pi"
+  entities:
+    - sensor.raspberry_pi_cpu_usage
+    - sensor.raspberry_pi_disk_usage
+    - sensor.raspberry_pi_ram_usage
+    - sensor.raspberry_pi_swap_usage
+
+system_monitoring_view_sonarr_monitor:
+  name:  "Sonarr Monitor"
+  entities:
+    - sensor.sonarr_queue
+    - sensor.sonarr_upcoming
+    - sensor.sonarr_disk_space

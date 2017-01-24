@@ -1,0 +1,102 @@
+############################################################
+#
+# Kitchen Light Automations
+#
+############################################################
+
+############################################################
+# Turns on the kitchen accent light if it was on when the kitchen light switch was turned on.
+############################################################
+- alias: Turn on kitchen accent light when kitchen switch turns off
+  trigger:
+    - platform: state
+      entity_id: switch.kitchen_switch_10_0
+      from: 'on'
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: input_boolean.kitchen_accent_status
+      state: 'on'
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: time
+      before: '22:00:00'
+  action:
+    - service: input_boolean.turn_off
+      data_template:
+          entity_id: input_boolean.kitchen_accent_status
+  - service: script.turn_on
+    data:
+      entity_id: script.turn_on_kitchen_accent_light_and_start_off_timer
+
+############################################################
+# Turns on the kitchen accent light dimmed if it was on when the kitchen light switch was
+# turned on.
+############################################################
+- alias: Turn on kitchen accent light dimmed when kitchen switch turns off
+  trigger:
+    - platform: state
+      entity_id: switch.kitchen_switch_10_0
+      from: 'on'
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: input_boolean.kitchen_accent_status
+      state: 'on'
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: time
+      after: '22:00:00'
+  action:
+    - service: input_boolean.turn_off
+      data_template:
+          entity_id: input_boolean.kitchen_accent_status
+  - service: script.turn_on
+    data:
+      entity_id: script.turn_on_kitchen_accent_light_dimmed_and_start_off_timer
+
+############################################################
+# Starts the main kitchen light off timer when motion is no longer detected in the kitchen.
+############################################################
+- alias: Turn off kitchen light when there is no movement
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_2_0
+      from: 'on'
+      to: 'off'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+      - condition: state
+        entity_id: switch.kitchen_switch_10_0
+        state: 'on'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.kitchen_light_off_timer
+
+############################################################
+# Starts the main kitchen light off timer when occupancy is no longer detected in the kitchen.
+############################################################
+- alias: Turn off kitchen light when there is no occupancy
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.kitchen_occupancy
+      from: 'on'
+      to: 'off'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+      - condition: state
+        entity_id: switch.kitchen_switch_10_0
+        state: 'on'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.kitchen_light_off_timer

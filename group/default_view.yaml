@@ -1,0 +1,56 @@
+############################################################
+#
+# Default View
+#
+############################################################
+
+default_view:
+  view: yes
+  icon: mdi:home
+  entities:
+    - device_tracker.hass_mqtt_zphone
+    - device_tracker.hass_mqtt_jphone
+    - device_tracker.mynt_tracker
+    - group.default_view_climate
+    - group.default_view_devices
+    - group.default_view_lighting
+    - configurator.plex_media_server
+    - configurator.ecobee
+
+default_view_climate:
+  name:  "Climate"
+  entities:
+    - climate.hallway__ecobee
+    - sensor.hallway__ecobee_humidity
+    - sensor.dark_sky_humidity
+    - sensor.dark_sky_temperature
+    - sensor.bedroom__back_bedroom_temperature
+    - sensor.hallway__ecobee_temperature
+    - sensor.bedroom__bedroom_temperature
+    - sensor.kitchen_temperature
+
+default_view_devices:
+  name:  "Devices"
+  control: hidden
+  entities:
+  - binary_sensor.back_door_sensor_14_0
+  - sensor.tv_bedroom_state
+  - sensor.doorbell_active
+  - lock.kwikset_touchpad_electronic_deadbolt_locked_8_0
+  - sensor.harmony_hub_activity
+  - sensor.tv_living_room_state
+  - sensor.mynt_keychain_status
+  - sensor.ibeacon_status
+
+default_view_lighting:
+  name:  "Lighting"
+  entities:
+    - light.linear_wd500z1_wall_dimmer_switch_level_9_0
+    - switch.back_patio_switch_11_0
+    - light.entry
+    - light.front_porch
+    - light.garage_door_north
+    - light.garage_door_south
+    - light.hallway
+    - switch.kitchen_switch_10_0
+    - light.flux_kitchen_light

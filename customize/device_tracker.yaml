@@ -1,0 +1,17 @@
+###########################################################
+#
+# Device Tracker Customizations
+#
+############################################################
+
+device_tracker.hass_mqtt_zphone:
+  friendly_name: !secret z_name
+  entity_picture: /local/images/z.png
+
+device_tracker.hass_mqtt_jphone:
+  friendly_name: !secret j_name
+  entity_picture: /local/images/j.png
+
+device_tracker.mynt_tracker:
+  friendly_name: !secret g_name
+  entity_picture: /local/images/g.png

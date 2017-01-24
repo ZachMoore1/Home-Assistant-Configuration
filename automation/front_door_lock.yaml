@@ -1,0 +1,63 @@
+############################################################
+#
+# Front Door Lock Automations
+#
+############################################################
+
+############################################################
+# Starts the front door auto-lock timer when the front door is unlocked.
+############################################################
+- alias: Start lock timer when door unlocked
+  trigger:
+    - platform: state
+      entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+      to: "19"
+    - platform: state
+      entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+      to: "22"
+    - platform: state
+      entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+      to: "25"
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.start_auto_lock_timer
+
+############################################################
+# Syncs the state of the front door lock based on the locks alarm type value.  There is a 15
+# second delay in place to avoid false readings if the door is locked/unlocked rapidly.
+############################################################
+- alias: Sync lock state
+  trigger:
+    platform: state
+    entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+  action:
+    - delay:
+        seconds: 15
+    - service_template: '{%- if ( (trigger.to_state.state == "19") or (trigger.to_state.state == "22") or (trigger.to_state.state == "25") ) -%}lock.unlock{%- else -%}lock.lock{% endif %}'
+      entity_id: lock.kwikset_touchpad_electronic_deadbolt_locked_8_0
+
+############################################################
+# Unlocks the front door when a device tracker state changes to home.
+############################################################
+- alias: Unlock front door when arriving home
+  trigger:
+    - platform: state
+      entity_id: input_boolean.mynt_tracker_away_status
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: input_boolean.jphone_away_status
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: input_boolean.zphone_away_status
+      from: 'on'
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: lock.kwikset_touchpad_electronic_deadbolt_locked_8_0
+      state: 'locked'
+  action:
+    - service: lock.unlock
+      data:
+        entity_id: lock.kwikset_touchpad_electronic_deadbolt_locked_8_0

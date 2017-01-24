@@ -1,0 +1,13 @@
+############################################################
+#
+# MQTT Switches
+#
+############################################################
+
+- platform: mqtt
+  name: "Xbox"
+  state_topic:   "harmony-api/hubs/harmony-hub/activities/play-xbox-one/state"
+  command_topic: "harmony-api/hubs/harmony-hub/activities/play-xbox-one/command"
+  qos: 0
+  payload_on: "on"
+  payload_off: "off"

@@ -1,0 +1,119 @@
+############################################################
+#
+# Device Tracker Scripts
+#
+############################################################
+
+############################################################
+# Starts the mynt tracker away timer.
+############################################################
+start_mynt_tracker_away_timer:
+  alias: "Reset and start mynt tracker away timer"
+  sequence:
+    - service: script.turn_off
+      data:
+        entity_id: script.mynt_tracker_away_timer
+    - service: script.turn_on
+      data:
+        entity_id: script.mynt_tracker_away_timer
+
+############################################################
+# Set the mynt trackers away boolean to on after 5 minutes.
+############################################################
+mynt_tracker_away_timer:
+  alias: "Turn on mynt trackers away status after 5 minutes"
+  sequence:
+    - delay:
+        minutes: 5
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.mynt_tracker_away_status
+
+############################################################
+# Turns off the mynt tracker away timer and sets the mynt trackers away boolean to off.
+############################################################
+set_mynt_tracker_home:
+  alias: "Turn off mynt trackers away status"
+  sequence:
+    - service: script.turn_off
+      data:
+        entity_id: script.mynt_tracker_away_timer
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.mynt_tracker_away_status
+
+############################################################
+# Starts the jphone away timer.
+############################################################
+start_jphone_away_timer:
+  alias: "Reset and start jphone away timer"
+  sequence:
+    - service: script.turn_off
+      data:
+        entity_id: script.jphone_away_timer
+    - service: script.turn_on
+      data:
+        entity_id: script.jphone_away_timer
+
+############################################################
+# Set jphones away boolean to on after 5 minutes.
+############################################################
+jphone_away_timer:
+  alias: "Turn on jphones away status after 5 minutes"
+  sequence:
+    - delay:
+        minutes: 5
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.jphone_away_status
+
+############################################################
+# Turns off the jphone away timer and sets jphones away boolean to off.
+############################################################
+set_jphone_home:
+  alias: "Turn off jphones away status"
+  sequence:
+    - service: script.turn_off
+      data:
+        entity_id: script.jphone_away_timer
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.jphone_away_status
+
+############################################################
+# Starts the zphone away timer.
+############################################################
+start_zphone_away_timer:
+  alias: "Reset and start zphone away timer"
+  sequence:
+    - service: script.turn_off
+      data:
+        entity_id: script.zphone_away_timer
+    - service: script.turn_on
+      data:
+        entity_id: script.zphone_away_timer
+
+############################################################
+# Set zphones away boolean to on after 5 minutes.
+############################################################
+zphone_away_timer:
+  alias: "Turn on zphones away status after 5 minutes"
+  sequence:
+    - delay:
+        minutes: 5
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.zphone_away_status
+
+############################################################
+# Turns off the zphone away timer and sets zphones away boolean to off.
+############################################################
+set_zphone_home:
+  alias: "Turn off zphones away status"
+  sequence:
+    - service: script.turn_off
+      data:
+        entity_id: script.zphone_away_timer
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.zphone_away_status

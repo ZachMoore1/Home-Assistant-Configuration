@@ -1,0 +1,75 @@
+############################################################
+#
+# Outside Front Lights Scripts
+#
+############################################################
+
+############################################################
+# Turns on the outside lights and starts the off timer.
+############################################################
+turn_on_outside_lights_and_start_off_timer:
+  alias: "Turn on outside lights and reset off timer"
+  sequence:
+    - service: script.turn_off
+      data:
+        entity_id: script.outside_lights_off_timer
+    - service: light.turn_on
+      data:
+        entity_id: light.garage_door_north
+        brightness: 255
+    - service: light.turn_on
+      data:
+        entity_id: light.garage_door_south
+        brightness: 255
+    - service: scene.turn_on
+      data:
+        entity_id: scene.front_porch_full
+    - service: script.turn_on
+      data:
+        entity_id: script.outside_lights_off_timer
+
+############################################################
+# Turns off the outside lights after a 5 minute delay.
+############################################################
+outside_lights_off_timer:
+  alias: "Turn off outside lights after 5 minutes"
+  sequence:
+    - delay:
+        minutes: 5
+    - service: light.turn_off
+      data:
+        entity_id: light.garage_door_north
+    - service: light.turn_off
+      data:
+        entity_id: light.garage_door_south
+    - service: scene.turn_on
+      data:
+        entity_id: scene.front_porch_off
+
+############################################################
+# Turns on the front porch light and starts the off timer.
+############################################################
+turn_on_front_porch_light_and_start_off_timer:
+  alias: "Restore front porch light to off after 5 minutes"
+  sequence:
+    - service: script.turn_off
+      data:
+        entity_id: script.front_porch_light_off_timer
+    - service: scene.turn_on
+      data:
+        entity_id: scene.front_porch_full
+    - service: script.turn_on
+      data:
+        entity_id: script.front_porch_light_off_timer
+
+############################################################
+# Turns off the front porch light after a 5 minute delay.
+############################################################
+front_porch_light_off_timer:
+  alias: "Turn off front porch light after 5 minutes"
+  sequence:
+    - delay:
+        minutes: 5
+    - service: scene.turn_on
+      data:
+        entity_id: scene.front_porch_off

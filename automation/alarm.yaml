@@ -1,0 +1,60 @@
+############################################################
+#
+# Alarm Automations
+#
+############################################################
+
+############################################################
+# Triggers an alarm when a security sensor turns on and the alarm is set to armed_away.
+############################################################
+- alias: Trigger alarm while armed away
+  trigger:
+    - platform: state
+      entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+      to: "19"
+    - platform: state
+      entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+      to: "22"
+    - platform: state
+      entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+      to: "25"
+    - platform: state
+      entity_id: input_boolean.front_door_motion_detected
+      state: 'on'
+    - platform: state
+      entity_id: binary_sensor.bedroom_occupancy
+      state: 'on'
+    - platform: state
+      entity_id: binary_sensor.back_bedroom_occupancy
+      state: 'on'
+    - platform: state
+      entity_id: binary_sensor.kitchen_occupancy
+      state: 'on'
+    - platform: state
+      entity_id: binary_sensor.hallway__ecobee_occupancy
+      state: 'on'
+    - platform: state
+      entity_id: binary_sensor.back_yard_motion
+      state: 'on'
+    - platform: state
+      entity_id: binary_sensor.back_door_sensor_14_0
+      state: 'on'
+    - platform: state
+      entity_id: binary_sensor.bedroom_motion
+      state: 'on'
+    - platform: state
+      entity_id: binary_sensor.back_door_sensor_14_0
+      state: 'on'
+    - platform: state
+      entity_id: binary_sensor.motion_02_sensor_15_0
+      state: 'on'
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_2_0
+      state: 'on'
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.ha_alarm
+      state: armed_away
+  action:
+    service: alarm_control_panel.alarm_trigger
+    entity_id: alarm_control_panel.ha_alarm

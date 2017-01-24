@@ -1,0 +1,14 @@
+############################################################
+#
+# Template Switches
+#
+############################################################
+
+- platform: template
+  switches:
+    climate_away_mode:
+      value_template: '{{ states.climate.hallway__ecobee.attributes.away_mode == "on" }}'
+      turn_on:
+        service: script.enable_away_mode
+      turn_off:
+        service: script.disable_away_mode

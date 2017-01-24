@@ -1,0 +1,183 @@
+############################################################
+#
+# Outside Front Lights Automations
+#
+############################################################
+
+############################################################
+# Turns on the outside lights at night when the front door is unlocked.
+############################################################
+- alias: Turn On Outside Lights for 5 Minutes When Door Is Unlocked
+  trigger:
+    - platform: state
+      entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+      to: "19"
+    - platform: state
+      entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+      to: "22"
+    - platform: state
+      entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+      to: "25"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: light.garage_door_north
+          state: 'off'
+        - condition: state
+          entity_id: light.garage_door_south
+          state: 'off'
+        - condition: state
+          entity_id: light.front_porch
+          state: 'off'
+  action:
+    service: homeassistant.turn_on
+    data_template:
+       entity_id: script.turn_on_outside_lights_and_start_off_timer
+
+############################################################
+# Turns on the outside lights at night when a device tracker arrives home.
+############################################################
+- alias: Turn on Outside Lights for 5 minutes when arriving home
+  trigger:
+    - platform: state
+      entity_id: input_boolean.g_away_status
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: input_boolean.j_away_status
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: input_boolean.z_away_status
+      from: 'on'
+      to: 'off'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: light.garage_door_north
+          state: 'off'
+        - condition: state
+          entity_id: light.garage_door_south
+          state: 'off'
+        - condition: state
+          entity_id: light.front_porch
+          state: 'off'
+  action:
+    service: homeassistant.turn_on
+    data_template:
+       entity_id: script.turn_on_outside_lights_and_start_off_timer
+
+############################################################
+# Turns on the front porch light at night when motion is detected.
+############################################################
+- alias: Turn On front porch light When Motion Is Detected At Front Door
+  trigger:
+    - platform: state
+      entity_id: input_boolean.front_door_motion_detected
+      state: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+      - condition: state
+        entity_id: light.front_porch
+        state: 'off'
+  action:
+    service: homeassistant.turn_on
+    data_template:
+      entity_id: script.front_porch_light_off_timer
+
+############################################################
+# Turns off any outside lights that may be on when the sun rises.
+############################################################
+- alias: Turn Off Outside Lights at Sunrise
+  trigger:
+    - platform: sun
+      event: sunrise
+  action:
+    - service: scene.turn_on
+      entity_id: scene.front_porch_off
+    - service: light.turn_off
+      entity_id: light.garage_door_north
+    - service: light.turn_off
+      entity_id: light.garage_door_south
+    - service: switch.turn_off
+      entity_id: switch.back_patio_switch_11_0
+
+############################################################
+# Turns on the outside lights at sunset.  Currently disabled by default since other automations
+# turn on the lights based on presence and motion.
+############################################################
+- alias: Turn On Outside Lights at Sunset
+  initial_state: false
+  trigger:
+    - platform: sun
+      event: sunset
+  action:
+    - service: scene.turn_on
+      entity_id: scene.front_porch_normal
+    - service: light.turn_on
+      entity_id: light.garage_door_north
+    - service: light.turn_on
+      entity_id: light.garage_door_south
+
+############################################################
+# Turns off any outside lights that are on after 8PM.  Runs every 30 minutes in case any light
+# automation accidentally turned on a light.
+############################################################
+- alias: Turn Off Outside Lights After 8PM If Everyone Is Home
+  trigger:
+    platform: time
+    minutes: '/30'
+    seconds: 00
+  condition:
+    condition: time
+    after: '20:00:00'
+    before: '05:00:00'
+  action:
+    - service: scene.turn_on
+      entity_id: scene.front_porch_off
+    - service: light.turn_off
+      entity_id: light.garage_door_north
+    - service: light.turn_off
+      entity_id: light.garage_door_south
+
+############################################################
+# Changes the brightness level of the front porch light based on the input slider values.
+############################################################
+- alias: Input Slider Front Porch Light
+  trigger:
+    platform: state
+    entity_id: input_slider.front_porch_brightness
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.front_porch
+        brightness: '{{ trigger.to_state.state | int }}'
+
+############################################################
+# Changes the brightness level of the garage lights based on the input slider values.
+############################################################
+- alias: Input Slider Garage Lights
+  trigger:
+    platform: state
+    entity_id: input_slider.garage_brightness
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: group.garage_lights
+        brightness: '{{ trigger.to_state.state | int }}'

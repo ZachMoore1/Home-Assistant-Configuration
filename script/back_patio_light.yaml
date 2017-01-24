@@ -1,0 +1,30 @@
+############################################################
+#
+# Back Patio Light Scripts
+#
+############################################################
+
+############################################################
+# Reset the back patio light off timer.
+############################################################
+reset_back_patio_light_off_timer:
+  alias: "Turn off back patio light after 5 minutes"
+  sequence:
+    - service: script.turn_off
+      data:
+        entity_id: script.timed_back_patio_light_off_timer
+    - service: script.turn_on
+      data:
+        entity_id: script.timed_back_patio_light_off_timer
+
+############################################################
+# Turn off the back patio light switch after a 5 minute delay.
+############################################################
+back_patio_light_off_timer:
+  alias: "Turn off back patio light after 5 minutes"
+  sequence:
+    - delay:
+        minutes: 5
+    - service: switch.turn_off
+      data:
+        entity_id: switch.back_patio_switch_11_0

@@ -1,0 +1,20 @@
+###########################################################
+#
+# Input Slider Customizations
+#
+############################################################
+
+input_slider.bedroom_brightness:
+  icon: mdi:signal
+
+input_slider.hallway_brightness:
+  icon: mdi:signal
+
+input_slider.entry_brightness:
+  icon: mdi:signal
+
+input_slider.front_porch_brightness:
+  icon: mdi:signal
+
+input_slider.garage_brightness:
+  icon: mdi:signal

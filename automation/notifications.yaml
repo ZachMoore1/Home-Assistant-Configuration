@@ -1,0 +1,126 @@
+############################################################
+#
+# Notification Automations
+#
+############################################################
+
+############################################################
+# Sends a notification to Kodi when the doorbell rings.
+############################################################
+- alias: Notify Kodi When Doorbell Rings
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.doorbell_sensor_4_0
+      from: 'on'
+      to: 'off'
+  action:
+    service: shell_command.kodi_doorbell_notification
+
+############################################################
+# Sends a pop up window to Kodi that contains a the front door camera feed when the
+# doorbell rings.
+############################################################
+- alias: Preview Camera On Kodi When Doorbell Rings
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.doorbell_sensor_4_0
+      from: 'on'
+      to: 'off'
+  action:
+    service: shell_command.kodi_display_camera
+
+############################################################
+# Sends a snapshot of the front door camera to telegram when the doorbell rings.
+############################################################
+- alias: Send Snapshot When Doorbell Rings
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.doorbell_sensor_4_0
+      from: 'on'
+      to: 'off'
+  action:
+  - service: notify.telegram
+    data:
+      title: Alert
+      message: Doorbell
+      data:
+        photo:
+          - url: 'http://192.168.1.18:8765/picture/1/current/'
+            caption: 'Doorbell Alert'
+
+############################################################
+# Sends a browser notification when the front door is locked.
+############################################################
+- alias: Notify When Front Door Is Locked
+  trigger:
+    - platform: state
+      entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+      to: "18"
+    - platform: state
+      entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+      to: "21"
+    - platform: state
+      entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+      to: "24"
+  action:
+    service: notify.browser_notifications
+    data:
+      message: "Front Door Locked."
+      data:
+        url: 'http://192.168.1.18:8765/picture/1/frame/'
+        tag: 'notification-door-locked'
+
+############################################################
+# Sends a browser notification when the front door is unlocked.
+############################################################
+- alias: Notify When Front Door Is Unlocked
+  trigger:
+    - platform: state
+      entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+      to: "19"
+    - platform: state
+      entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+      to: "22"
+    - platform: state
+      entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+      to: "25"
+  action:
+    service: notify.browser_notifications
+    data:
+      message: "Front Door Unlocked."
+      data:
+        url: 'http://192.168.1.18:8765/picture/1/frame/'
+        tag: 'notification-door-unlocked'
+
+############################################################
+# Sends a browser notification when motion is detected by the front door camera.
+############################################################
+- alias: Notify When Front Door Motion is Detected
+  trigger:
+    - platform: state
+      entity_id: input_boolean.front_door_motion_detected
+      state: 'on'
+  action:
+    service: notify.browser_notifications
+    data:
+      message: "Motion Detected - Front Door"
+      data:
+        url: 'http://192.168.1.18:8765/picture/1/frame/'
+        tag: 'notification-front-door-motion'
+
+############################################################
+# Sends a browser notification when motion is detected by the front yard camera.
+############################################################
+- alias: Notify When Front Yard Motion is Detected
+  trigger:
+    - platform: state
+      entity_id: input_boolean.front_yard_motion_detected
+      state: 'on'
+  action:
+    service: notify.browser_notifications
+    data:
+      message: "Motion Detected - Front Yard"
+      data:
+        url: 'http://192.168.1.18:8765/picture/2/frame/'
+        tag: 'notification-front-yard-motion'
+

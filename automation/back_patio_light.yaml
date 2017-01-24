@@ -1,0 +1,48 @@
+############################################################
+#
+# Back Patio Light Automations
+#
+############################################################
+
+############################################################
+# Turns on the back patio light switch when the back door is opened.  The light will turn back
+# off based on a motion sensor delay.
+############################################################
+- alias: Turn on back patio switch when back door is opened
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.back_door_sensor_14_0
+      from: 'off'
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+      - condition: state
+        entity_id: switch.back_patio_switch_11_0
+        state: 'off'
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.back_patio_switch_11_0
+    - service: homeassistant.turn_on
+      data_template:
+        entity_id: script.reset_back_patio_light_off_timer
+
+############################################################
+# Resets the timer to turn off the back patio light whenever a motion detection change occurs.
+############################################################
+- alias: Reset back porch light timer on motion change
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.back_yard_motion
+  condition:
+    condition: state
+    entity_id: switch.back_patio_switch_11_0
+    state: 'on'
+  action:
+    service: homeassistant.turn_on
+    data_template:
+      entity_id: script.reset_back_patio_light_off_timer

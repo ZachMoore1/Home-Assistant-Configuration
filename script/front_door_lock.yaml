@@ -1,0 +1,90 @@
+############################################################
+#
+# Front Door Lock Scripts
+#
+############################################################
+
+############################################################
+# Locks the front door.  Used for Alexa commands.
+############################################################
+lock_front_door:
+  alias: "Lock front door"
+  sequence:
+    - service: lock.lock
+      data:
+        entity_id: lock.kwikset_touchpad_electronic_deadbolt_locked_8_0
+
+############################################################
+# Locks the front door.  Used for Alexa commands.
+############################################################
+lock_the_door:
+  alias: "Lock the door"
+  sequence:
+    - service: lock.lock
+      data:
+        entity_id: lock.kwikset_touchpad_electronic_deadbolt_locked_8_0
+
+############################################################
+# Locks the front door.  Used for Alexa commands.
+############################################################
+lock_the_front_door:
+  alias: "Lock the front door"
+  sequence:
+    - service: lock.lock
+      data:
+        entity_id: lock.kwikset_touchpad_electronic_deadbolt_locked_8_0
+
+############################################################
+# Locks the front door after a 5 minute delay.
+############################################################
+auto_lock_timer:
+  alias: "Lock front door after 5 minutes"
+  sequence:
+    - delay:
+        minutes: 5
+    - service: lock.lock
+      data:
+        entity_id: lock.kwikset_touchpad_electronic_deadbolt_locked_8_0
+
+############################################################
+# Resets the auto lock timer.
+############################################################
+start_auto_lock_timer:
+  alias: "Lock the front door and set timer"
+  sequence:
+    - service: script.turn_off
+      data:
+        entity_id: script.auto_lock_timer
+    - service: script.turn_on
+      data:
+        entity_id: script.auto_lock_timer
+
+############################################################
+# Unlocks the front door.  Used for Alexa commands.
+############################################################
+unlock_front_door:
+  alias: "Unlock front door"
+  sequence:
+    - service: lock.unlock
+      data:
+        entity_id: lock.kwikset_touchpad_electronic_deadbolt_locked_8_0
+
+############################################################
+# Unlocks the front door.  Used for Alexa commands.
+############################################################
+unlock_the_door:
+  alias: "Unlock the door"
+  sequence:
+    - service: lock.unlock
+      data:
+        entity_id: lock.kwikset_touchpad_electronic_deadbolt_locked_8_0
+
+############################################################
+# Unlocks the front door.  Used for Alexa commands.
+############################################################
+unlock_the_front_door:
+  alias: "Unlock the front door"
+  sequence:
+    - service: lock.unlock
+      data:
+        entity_id: lock.kwikset_touchpad_electronic_deadbolt_locked_8_0

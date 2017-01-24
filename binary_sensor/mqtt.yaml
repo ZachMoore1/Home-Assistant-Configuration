@@ -1,0 +1,15 @@
+############################################################
+#
+# MQTT Binary Sensors
+#
+############################################################
+
+- platform: mqtt
+  name: "Bedroom Motion"
+  state_topic: "bedroom_pi/motion"
+  sensor_class: motion
+
+- platform: mqtt
+  name: "Back Yard Motion"
+  state_topic: "back_yard_pi/motion"
+  sensor_class: motion

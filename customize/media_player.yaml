@@ -1,0 +1,11 @@
+###########################################################
+#
+# Media Player Customizations
+#
+############################################################
+
+media_player.xbox_bedroom:
+  friendly_name: 'Bedroom Xbox'
+
+media_player.xbox_living_room:
+  friendly_name: 'Living Room Xbox'

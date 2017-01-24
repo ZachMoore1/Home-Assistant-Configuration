@@ -1,0 +1,35 @@
+###########################################################
+#
+# Weblink Customizations
+#
+############################################################
+
+weblink.couchpotato:
+  icon: mdi:readability
+
+weblink.front_door_camera:
+  icon: mdi:home
+
+weblink.front_yard_camera:
+  icon: mdi:nature
+
+weblink.headphones:
+  icon: mdi:headphones
+
+weblink.motioneye:
+  icon: mdi:television-guide
+
+weblink.nzbget:
+  icon: mdi:web
+
+weblink.plex:
+  icon: mdi:plex
+
+weblink.plexpy:
+  icon: mdi:theater
+
+weblink.sonarr:
+  icon: mdi:television
+
+weblink.unraid_server:
+  icon: mdi:server

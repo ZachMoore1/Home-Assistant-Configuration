@@ -1,0 +1,193 @@
+###########################################################
+#
+# Sensor Customizations
+#
+############################################################
+
+sensor.raspberry_pi_cpu_usage:
+  icon: mdi:speedometer
+
+sensor.raspberry_pi_disk_usage:
+  icon: mdi:harddisk
+
+sensor.raspberry_pi_ram_usage:
+  icon: mdi:poll
+
+sensor.raspberry_pi_swap_usage:
+  icon: mdi:swap-horizontal
+
+sensor.raspberry_pi_running_count:
+  icon: mdi:settings
+
+sensor.beast_server_cpu_usage:
+  icon: mdi:speedometer
+
+sensor.beast_server_disk_usage:
+  icon: mdi:harddisk
+
+sensor.beast_server_ram_usage:
+  icon: mdi:poll
+
+sensor.beast_server_swap_usage:
+  icon: mdi:swap-horizontal
+
+sensor.beast_server_running_count:
+  icon: mdi:settings
+
+sensor.speedtest_ping:
+  icon: mdi:clock
+  friendly_name: 'Ping'
+
+sensor.speedtest_download:
+  icon: mdi:arrow-down
+  friendly_name: 'Download Speed'
+
+sensor.speedtest_upload:
+  icon: mdi:arrow-up
+  friendly_name: 'Upload Speed'
+
+sensor.nzbget_status_download_paused:
+  icon: mdi:pause-circle-outline
+  friendly_name: 'Downloads Paused'
+
+sensor.nzbget_status_queue_size:
+  icon: mdi:view-list
+  friendly_name: 'Queue Size'
+
+sensor.nzbget_status_download_size:
+  icon: mdi:cloud
+  friendly_name: 'Download Size'
+
+sensor.nzbget_status_remaining_size:
+  icon: mdi:cloud-download
+  friendly_name: 'Size Remaining'
+
+sensor.nzbget_status_speed:
+  icon: mdi:speedometer
+  friendly_name: 'Download Speed'
+
+sensor.dark_sky_summary:
+  icon: mdi:weather-partlycloudy
+  friendly_name: 'Currently'
+
+sensor.dark_sky_temperature:
+  icon: mdi:thermometer
+  friendly_name: 'Outside Temperature'
+
+sensor.dark_sky_humidity:
+  icon: mdi:water-percent
+  friendly_name: 'Outside Humidity'
+
+sensor.dark_sky_minutely_summary:
+  icon: mdi:brightness-5
+  friendly_name: 'Next Hour'
+
+sensor.dark_sky_daily_high_temperature:
+  icon: mdi:weather-sunny
+  friendly_name: 'High'
+
+sensor.dark_sky_daily_low_temperature:
+  icon: mdi:weather-snowy
+  friendly_name: 'Low'
+
+sensor.zphone_battery:
+  icon: mdi:battery-charging-100
+  friendly_name: 'ZPhone Battery'
+
+sensor.jphone_battery:
+  icon: mdi:battery-charging-100
+  friendly_name: 'JPhone Battery'
+
+sensor.front_door_lock_battery:
+  icon: mdi:battery-charging-100
+  friendly_name: 'Front Door Lock Battery'
+
+sensor.motion_sensor_battery:
+  icon: mdi:battery-charging-100
+  friendly_name: 'Motion Sensor Battery'
+
+sensor.motion_sensor_02_battery:
+  icon: mdi:battery-charging-100
+  friendly_name: 'Hallway Motion Sensor Battery'
+
+sensor.doorbell_sensor_battery:
+  icon: mdi:battery-charging-100
+  friendly_name: 'Doorbell Sensor Battery'
+
+sensor.back_door_sensor_battery:
+  icon: mdi:battery-charging-100
+  friendly_name: 'Back Door Sensor Battery'
+
+sensor.hallway__ecobee_humidity:
+  friendly_name: 'Humidity'
+  icon: mdi:water-percent
+
+sensor.hallway__ecobee_temperature:
+  friendly_name: 'Hallway'
+
+sensor.kitchen_temperature:
+  friendly_name: "Kitchen"
+  icon: mdi:thermometer
+
+sensor.kitchen_occupancy:
+  icon: mdi:human-handsup
+
+sensor.bedroom_temperature:
+  friendly_name: "Bedroom"
+
+sensor.back_bedroom_temperature:
+  friendly_name: "Back Bedroom"
+
+sensor.plex:
+  friendly_name: "Watching Plex"
+  icon: mdi:counter
+
+sensor.plex_state_z:
+  icon: mdi:account
+
+sensor.plex_state_remote:
+  icon: mdi:account
+
+sensor.plex_state_j:
+  icon: mdi:account
+
+sensor.plex_state_g:
+  icon: mdi:account
+
+sensor.mynt_keychain_status:
+  friendly_name: "Mynt Keychain"
+  icon: mdi:key-variant
+
+sensor.ibeacon_status:
+  icon: mdi:spotify
+
+sensor.back_bedroom_occupancy:
+  icon: mdi:human-handsup
+
+sensor.bedroom_occupancy:
+  icon: mdi:human-handsup
+
+sensor.kitchen_temp:
+  icon: mdi:thermometer
+
+sensor.living_room_temperature:
+  icon: mdi:thermometer
+
+sensor.harmony_hub_activity:
+  icon: mdi:remote
+
+sensor.tv_bedroom_state:
+  icon: mdi:television
+
+sensor.tv_living_room_state:
+  icon: mdi:television
+
+sensor.front_door_motion_status:
+  icon: mdi:blur-radial
+
+sensor.front_yard_motion_status:
+  icon: mdi:blur-radial
+
+sensor.doorbell_active:
+  friendly_name: 'Doorbell'
+  icon: mdi:bell-ring

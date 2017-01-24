@@ -1,0 +1,77 @@
+############################################################
+#
+# Automation Customizations
+#
+############################################################
+
+automation.trigger_alarm_while_armed_away:
+  icon: mdi:bell-ring
+
+automation.turn_on_back_patio_switch_when_back_door_is_opened:
+  icon: mdi:lightbulb-on
+
+automation.notify_kodi_when_doorbell_rings:
+  icon: mdi:alert-box
+
+automation.preview_camera_on_kodi_when_doorbell_rings:
+  icon: mdi:video
+
+automation.send_snapshot_when_doorbell_rings:
+  icon: mdi:camera
+
+automation.turn_on_kitchen_accent_light_dimmed_when_door_unlocked_or_motion_detected:
+  icon: mdi:led-off
+
+automation.turn_on_kitchen_accent_light_when_door_unlocked_or_motion_detected:
+  icon: mdi:led-on
+
+automation.turn_on_outside_lights_for_5_minutes_when_door_is_unlocked:
+  icon: mdi:lightbulb-on
+
+automation.start_lock_timer_when_door_unlocked:
+  icon: mdi:lock
+
+automation.notify_when_front_door_is_locked:
+  icon: mdi:alert-box
+
+automation.turn_on_entry_light_when_door_is_unlocked:
+  icon: mdi:lightbulb-on
+
+automation.notify_when_front_door_is_unlocked:
+  icon: mdi:alert-box
+
+automation.sync_lock_state:
+  icon: mdi:lock-open
+
+automation.turn_on_entry_light_dimmed_when_door_is_unlocked:
+  icon: mdi:lightbulb
+
+automation.turn_on_kitchen_accent_light_dimmed_when_kitchen_switch_turns_off:
+  icon: mdi:led-off
+
+automation.turn_off_kitchen_accent_light_when_the_kitchen_switch_turns_on:
+  icon: mdi:led-variant-off
+
+automation.turn_on_kitchen_accent_light_when_kitchen_switch_turns_off:
+  icon: mdi:led-on
+
+automation.turn_off_kitchen_light_when_there_is_no_occupancy:
+  icon: mdi:led-variant-off
+
+automation.turn_on_front_porch_light_when_motion_is_detected_at_front_door:
+  icon: mdi:lightbulb-on
+
+automation.turn_off_hallway_light_when_there_is_no_movement:
+  icon: mdi:lightbulb-outline
+
+automation.turn_off_kitchen_light_when_there_is_no_movement:
+  icon: mdi:led-variant-off
+
+automation.turn_on_hallway_light_dimmed_when_there_is_movement:
+  icon: mdi:lightbulb
+
+automation.turn_on_outside_lights_for_5_minutes_when_arriving_home:
+  icon: mdi:lightbulb-on
+
+automation.heal_zwave_nightly:
+  icon: mdi:plus-box

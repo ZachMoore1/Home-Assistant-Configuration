@@ -1,0 +1,19 @@
+############################################################
+#
+# Bedroom light Scripts
+#
+############################################################
+
+############################################################
+# Turn on the bedroom xbox and dim the lights.
+############################################################
+movie_time:
+  alias: "Movie Time"
+  sequence:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.xbox
+    - service: light.turn_on
+      data:
+        entity_id: light.linear_wd500z1_wall_dimmer_switch_level_9_0
+        brightness: 30

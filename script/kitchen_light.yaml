@@ -1,0 +1,20 @@
+############################################################
+#
+# Kitchen Light Scripts
+#
+############################################################
+
+############################################################
+# Turns off the kitchen light after a 15 minute delay.
+############################################################
+kitchen_light_off_timer:
+  alias: "Turn off kitchen lights after 15 minutes"
+  sequence:
+    - delay:
+        minutes: 15
+    - condition: state
+      entity_id: binary_sensor.kitchen_occupancy
+      state: 'off'
+    - service: switch.turn_off
+      data:
+        entity_id: switch.kitchen_switch_10_0

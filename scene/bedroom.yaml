@@ -1,0 +1,22 @@
+############################################################
+#
+# Bedroom Scenes
+#
+############################################################
+
+- name: Bedroom off
+  entities:
+      light.linear_wd500z1_wall_dimmer_switch_level_9_0:
+          state: off
+
+- name: Bedroom dim
+  entities:
+      light.linear_wd500z1_wall_dimmer_switch_level_9_0:
+          state: on
+          brightness: 75
+
+- name: Bedroom full
+  entities:
+      light.linear_wd500z1_wall_dimmer_switch_level_9_0:
+          state: on
+          brightness: 255

@@ -1,0 +1,31 @@
+############################################################
+#
+# Input Booleans
+#
+############################################################
+
+kitchen_accent_status:
+  name: Kitchen accent lighting status for kitchen switch automations
+  initial: off
+
+mynt_tracker_away_status:
+  name: Mynt tracker state for presence automation
+  initial: off
+
+jphone_away_status:
+  name: JPhone state for presence automation
+  initial: off
+
+zphone_away_status:
+  name: ZPhone state for presence automation
+  initial: off
+
+front_door_motion_detected:
+  name: Front Door Motion
+  initial: off
+
+front_yard_motion_detected:
+  name: Front Yard Motion
+  initial: off
+
+harmony_hub:

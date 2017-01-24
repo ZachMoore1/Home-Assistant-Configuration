@@ -1,0 +1,35 @@
+############################################################
+#
+# Security View
+#
+############################################################
+
+security_view:
+  view: yes
+  entities:
+    - group.security_view_alarm
+    - group.security_view_sensors
+    - camera.front_door_camera
+    - camera.front_yard_camera
+
+security_view_alarm:
+  name:  "Alarm"
+  control: hidden
+  entities:
+    - alarm_control_panel.ha_alarm
+    - script.set_alarm_armed_away
+    - script.set_alarm_armed_home
+    - script.set_alarm_disarmed
+
+security_view_sensors:
+  name:  "Sensors"
+  control: hidden
+  entities:
+  - binary_sensor.back_door_sensor_14_0
+  - binary_sensor.back_yard_motion
+  - binary_sensor.bedroom_motion
+  - lock.kwikset_touchpad_electronic_deadbolt_locked_8_0
+  - binary_sensor.front_door_motion
+  - binary_sensor.front_yard_motion
+  - binary_sensor.motion_02_sensor_15_0
+  - binary_sensor.motion_sensor_2_0

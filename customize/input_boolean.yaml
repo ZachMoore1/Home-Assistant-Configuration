@@ -1,0 +1,18 @@
+###########################################################
+#
+# Input Boolean Customizations
+#
+############################################################
+
+input_boolean.alexa_lock:
+  emulated_hue: true
+  emulated_hue_name: "front door lock"
+
+input_boolean.mynt_tracker_away_status:
+  icon: mdi:directions
+
+input_boolean.jphone_away_status:
+  icon: mdi:directions
+
+input_boolean.zphone_away_status:
+  icon: mdi:directions

@@ -1,0 +1,13 @@
+###########################################################
+#
+# Switch Customizations
+#
+############################################################
+
+switch.kitchen_switch_10_0:
+  friendly_name: 'Kitchen'
+  icon: mdi:white-balance-incandescent
+
+switch.back_patio_switch_11_0:
+  friendly_name: 'Back Patio'
+  icon: mdi:white-balance-incandescent

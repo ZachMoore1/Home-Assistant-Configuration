@@ -1,0 +1,117 @@
+############################################################
+#
+# Bedroom Media Automations
+#
+############################################################
+
+############################################################
+# Sets the input selection to echo dot when the harmony remote turns it on
+############################################################
+- alias: Echo dot started from harmony hub
+  trigger:
+    platform: state
+    entity_id: remote.harmony_hub
+  condition:
+    condition: template
+    value_template: '{{ trigger.to_state.attributes.current_activity == "Echo Dot" }}'
+  action:
+    service: input_select.select_option
+    entity_id: input_select.bedroom_harmony
+    data:
+      option: "Echo Dot"
+
+############################################################
+# Turns on the echo dot when it's the selected in the home assistant UI
+############################################################
+- alias: Echo dot started from home assistant
+  trigger:
+    platform: state
+    entity_id: input_select.bedroom_harmony
+    to: 'Echo Dot'
+  action:
+    service: script.turn_on
+    entity_id: script.harmony_select_echo
+
+############################################################
+# Sets the input selection to powered off when the harmony remote turns it on
+############################################################
+- alias: Powered off from harmony hub
+  trigger:
+    platform: state
+    entity_id: remote.harmony_hub
+  condition:
+    condition: template
+    value_template: '{{ trigger.to_state.attributes.current_activity == "PowerOff" }}'
+  action:
+    service: input_select.select_option
+    entity_id: input_select.bedroom_harmony
+    data:
+      option: "Powered Off"
+
+############################################################
+# Turns off the bedroom devices when powered off is selected in the home assistant UI
+############################################################
+- alias: Powered off from home assistant
+  trigger:
+    platform: state
+    entity_id: input_select.bedroom_harmony
+    to: 'Powered Off'
+  action:
+    service: script.turn_on
+    entity_id: script.harmony_select_off
+
+############################################################
+# Sets the input selection to xbox when the harmony remote turns it on
+############################################################
+- alias: Xbox started from harmony hub
+  trigger:
+    platform: state
+    entity_id: remote.harmony_hub
+  condition:
+    condition: template
+    value_template: '{{ trigger.to_state.attributes.current_activity == "Xbox" }}'
+  action:
+    service: input_select.select_option
+    entity_id: input_select.bedroom_harmony
+    data:
+      option: "Xbox"
+
+############################################################
+# Turns on the xbox when it's the selected in the home assistant UI
+############################################################
+- alias: Xbox started from home assistant
+  trigger:
+    platform: state
+    entity_id: input_select.bedroom_harmony
+    to: 'Xbox'
+  action:
+    service: script.turn_on
+    entity_id: script.harmony_select_xbox
+
+############################################################
+# Sets the input selection to steam link when the harmony remote turns it on
+############################################################
+- alias: Steam link started from harmony hub
+  trigger:
+    platform: state
+    entity_id: remote.harmony_hub
+  condition:
+    condition: template
+    value_template: '{{ trigger.to_state.attributes.current_activity == "Steam Link" }}'
+  action:
+    service: input_select.select_option
+    entity_id: input_select.bedroom_harmony
+    data:
+      option: "Steam Link"
+
+############################################################
+# Turns on the steam link when it's the selected in the home assistant UI
+############################################################
+- alias: Steam link started from home assistant
+  trigger:
+    platform: state
+    entity_id: input_select.bedroom_harmony
+    to: 'Steam Link'
+  action:
+    service: script.turn_on
+    entity_id: script.harmony_select_steam_link

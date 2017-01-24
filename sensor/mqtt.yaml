@@ -1,0 +1,19 @@
+############################################################
+#
+# MQTT Sensors
+#
+############################################################
+
+- platform: mqtt_room
+  device_id: !secret mqtt_room_mynt_device_id
+  name: !secret mqtt_room_mynt_name
+  state_topic: 'happy-bubbles/presence/ha'
+  timeout: 60
+  away_timeout: 180
+
+- platform: mqtt_room
+  device_id: !secret mqtt_room_ibeacon_device_id
+  name: !secret mqtt_room_ibeacon_name
+  state_topic: 'happy-bubbles/presence/ha'
+  timeout: 5
+  away_timeout: 0

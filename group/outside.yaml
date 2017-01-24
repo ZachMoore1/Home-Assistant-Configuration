@@ -1,0 +1,55 @@
+############################################################
+#
+# Outside View
+#
+############################################################
+
+outside_view:
+  view: yes
+  entities:
+    - group.outside_view_group
+    - group.outside_view_back_patio_light_automations
+    - group.outside_view_front_porch_light_automations
+    - group.outside_view_garage_light_automations
+
+outside_view_back_patio_light_automations:
+  name:  "Back Patio Light Automations"
+  control: hidden
+  entities:
+    - automation.back_door_turn_on_back_patio_switch_when_back_door_is_opened
+
+outside_view_front_porch_light_automations:
+  name:  "Front Porch Light Automations"
+  control: hidden
+  entities:
+    - automation.motion_sensor_turn_on_outside_lights_when_motion_is_detected_at_front_door
+    - automation.presence_turn_on_front_porch_light_for_5_minutes_on_jphone_arrival
+    - automation.front_door_turn_on_front_porch_light_for_5_minutes_when_door_is_unlocked
+    - automation.presence_turn_on_front_porch_light_for_5_minutes_on_mynt_tracker_arrival
+    - automation.presence_turn_on_front_porch_light_for_5_minutes_on_zphone_arrival
+
+outside_view_garage_light_automations:
+  name:  "Garage Light Automations"
+  control: hidden
+  entities:
+    - automation.front_door_turn_on_garage_south_light_for_5_minutes_when_door_is_unlocked
+    - automation.presence_turn_on_garage_south_light_for_5_minutes_on_zphone_arrival
+    - automation.presence_turn_on_garage_south_light_for_5_minutes_on_jphone_arrival
+    - automation.presence_turn_on_garage_south_light_for_5_minutes_on_mynt_tracker_arrival
+    - automation.front_door_turn_on_garage_north_light_for_5_minutes_when_door_is_unlocked
+    - automation.presence_turn_on_garage_north_light_for_5_minutes_on_zphone_arrival
+    - automation.presence_turn_on_garage_north_light_for_5_minutes_on_mynt_tracker_arrival
+    - automation.presence_turn_on_garage_north_light_for_5_minutes_on_jphone_arrival
+
+outside_view_group:
+  name:  "Outside"
+  control: hidden
+  entities:
+    - sensor.dark_sky_temperature
+    - light.garage_door_north
+    - light.garage_door_south
+    - light.front_porch
+    - switch.back_patio_switch_11_0
+    - binary_sensor.back_yard_motion
+    - binary_sensor.front_door_motion
+    - binary_sensor.front_yard_motion

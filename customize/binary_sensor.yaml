@@ -1,0 +1,62 @@
+###########################################################
+#
+# Binary Sensor Customizations
+#
+############################################################
+
+binary_sensor.motion_sensor_2_0:
+  friendly_name: 'Kitchen Motion'
+  icon: mdi:run
+  sensor_class: motion
+
+binary_sensor.motion_02_sensor_15_0:
+  friendly_name: 'Hallway Motion'
+  icon: mdi:run
+  sensor_class: motion
+
+binary_sensor.doorbell_sensor_4_0:
+  friendly_name: 'Doorbell Sensor'
+  icon: mdi:bell-ring
+
+binary_sensor.back_door_sensor_14_0:
+  friendly_name: 'Back Door'
+  icon: mdi:glassdoor
+  sensor_class: opening
+
+binary_sensor.kitchen_occupancy:
+  friendly_name: "Occupancy"
+  icon: mdi:human-handsup
+  sensor_class: occupancy
+
+binary_sensor.bedroom__bedroom_occupancy:
+  friendly_name: "Occupancy"
+  icon: mdi:human-handsup
+  sensor_class: occupancy
+
+binary_sensor.bedroom__back_bedroom_occupancy:
+  friendly_name: "Occupancy"
+  icon: mdi:human-handsup
+  sensor_class: occupancy
+
+binary_sensor.hallway__ecobee_occupancy:
+  friendly_name: 'Occupancy'
+  icon: mdi:human-handsup
+  sensor_class: occupancy
+
+binary_sensor.back_yard_motion:
+  friendly_name: 'Back Yard Motion'
+  icon: mdi:run
+  sensor_class: motion
+
+binary_sensor.bedroom_motion:
+  friendly_name: 'Bedroom Motion'
+  icon: mdi:run
+  sensor_class: motion
+
+binary_sensor.front_door_motion:
+  icon: mdi:video
+  sensor_class: motion
+
+binary_sensor.front_yard_motion:
+  icon: mdi:video
+  sensor_class: motion

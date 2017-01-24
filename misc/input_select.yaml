@@ -1,0 +1,15 @@
+############################################################
+#
+#  Input Selections
+#
+############################################################
+
+bedroom_harmony:
+  name: Harmony Activity
+  options:
+    - Powered Off
+    - Echo Dot
+    - Xbox
+    - Steam Link
+  initial: Echo Dot
+  icon: mdi:monitor

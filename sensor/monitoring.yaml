@@ -1,0 +1,73 @@
+############################################################
+#
+# Monitoring Sensors
+#
+############################################################
+
+- platform: plex
+  host: 192.168.1.18
+  port: 32400
+  username: !secret plex_username
+  password: !secret plex_password
+  server: !secret plex_server
+
+- platform: sonarr
+  api_key: !secret sonarr_api_key
+  host: 192.168.1.18
+  port: 8989
+  monitored_conditions:
+    - upcoming
+    - queue
+    - commands
+    - diskspace
+
+- platform: nzbget
+  host: 192.168.1.18
+  name: 'NZBGet Status'
+  username: !secret nzbget_username
+  password: !secret nzbget_password
+  monitored_variables:
+    - article_cache
+    - download_rate
+    - download_size
+    - download_paused
+    - remaining_size
+    - average_download_rate
+
+- platform: glances
+  host: 192.168.1.18
+  name: !secret glances_name
+  resources:
+    - 'disk_use_percent'
+    - 'disk_use'
+    - 'disk_free'
+    - 'memory_use_percent'
+    - 'memory_use'
+    - 'memory_free'
+    - 'swap_use_percent'
+    - 'swap_use'
+    - 'swap_free'
+    - 'processor_load'
+    - 'process_running'
+    - 'process_total'
+    - 'process_thread'
+    - 'process_sleeping'
+
+- platform: systemmonitor
+  name: 'Raspberry Pi'
+  resources:
+    - type: 'disk_use_percent'
+      arg: /
+    - type: 'disk_use'
+      arg: /
+    - type: 'memory_use_percent'
+    - type: 'memory_use'
+    - type: 'swap_use_percent'
+    - type: 'swap_use'
+    - type: 'processor_use'
+
+- platform: speedtest
+  monitored_conditions:
+    - ping
+    - download
+    - upload

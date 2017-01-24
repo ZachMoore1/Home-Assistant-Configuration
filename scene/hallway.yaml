@@ -1,0 +1,24 @@
+############################################################
+#
+# Hallway Scenes
+#
+############################################################
+
+- name: Hallway off
+  entities:
+      light.hallway:
+          state: off
+
+- name: Hallway dim
+  entities:
+      light.hallway:
+          state: on
+          transition: 2
+          brightness: 100
+
+- name: Hallway full
+  entities:
+      light.hallway:
+          state: on
+          transition: 2
+          brightness: 254

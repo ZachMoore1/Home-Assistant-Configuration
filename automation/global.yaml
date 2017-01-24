@@ -1,0 +1,58 @@
+############################################################
+#
+# Global Automations
+#
+############################################################
+
+############################################################
+# Turns off all of the lights in the house if everyone is away.
+############################################################
+- alias: Turn Off All Lights If Nobody Is Home
+  trigger:
+    - platform: state
+      entity_id: group.all_devices
+      from: 'home'
+      to: 'not_home'
+  action:
+    - service: light.turn_off
+      entity_id: group.all_lights
+
+############################################################
+# Turns off any lights that are on during the day.  Runs every 15 minutes in case any light
+# automation accidentally turned on a light.  Master bedroom light is excluded since there
+# are some daytime automations for it.
+############################################################
+- alias: Turn Off Lights During The Day
+  trigger:
+    platform: time
+    minutes: '/15'
+    seconds: 0
+  condition:
+    condition: sun
+    after: sunrise
+    before: sunset
+  action:
+    - service: scene.turn_on
+      entity_id: scene.front_porch_off
+    - service: light.turn_off
+      entity_id: light.garage_door_north
+    - service: light.turn_off
+      entity_id: light.garage_door_south
+    - service: light.turn_off
+      entity_id: light.kitchen
+    - service: light.turn_off
+      entity_id: light.flux_kitchen_light
+    - service: switch.turn_off
+      entity_id: switch.back_patio_switch_11_0
+    - service: switch.turn_off
+      entity_id: switch.flux_kitchen_light
+
+############################################################
+# Heals the Z-Wave network every night a 2:31AM.
+############################################################
+- alias: Heal ZWave Nightly
+  trigger:
+    platform: time
+    after: '2:31:00'
+  action:
+    service: zwave.heal_network

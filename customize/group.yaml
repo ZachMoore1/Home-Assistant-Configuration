@@ -1,0 +1,178 @@
+###########################################################
+#
+# Group Customizations
+#
+############################################################
+
+############################################################
+# Views
+############################################################
+group.bedrooms_view:
+  icon: mdi:hotel
+  order: 2
+
+group.kitchen_view:
+  icon: mdi:silverware
+  order: 3
+
+group.living_room_view:
+  icon: mdi:sofa
+  order: 4
+
+group.entry_view:
+  icon: mdi:walk
+  order: 5
+
+group.outside_view:
+  icon: mdi:weather-sunny
+  order: 6
+
+group.security_view:
+  icon: mdi:shield
+  order: 7
+
+group.scenes_view:
+  icon: mdi:lightbulb
+  order: 8
+
+group.automation_view:
+  icon: mdi:robot
+  order: 9
+
+group.system_monitoring_view:
+  icon: mdi:desktop-tower
+  order: 10
+
+############################################################
+# Global
+############################################################
+group.global_garage_lights:
+  emulated_hue: true
+  emulated_hue_name: "garage lights"
+
+group.global_outside_lights:
+  emulated_hue: true
+  emulated_hue_name: "outside lights"
+
+############################################################
+# Bedrooms
+############################################################
+group.bedrooms_view_back_bedroom:
+  order: 1
+
+group.bedrooms_view_harmony_control:
+  order: 2
+
+group.bedrooms_view_bedroom:
+  order: 3
+
+group.bedrooms_view_master_bedroom_light_automations:
+  order: 4
+
+group.bedrooms_view_master_bedroom:
+  order: 5
+
+############################################################
+# Default View
+############################################################
+group.default_view_climate:
+  order: 1
+
+group.default_view_devices:
+  order: 2
+
+group.default_view_lighting:
+  order: 3
+
+############################################################
+# Kitchen
+############################################################
+group.kitchen_view_group:
+  order: 1
+
+group.kitchen_view_light_automations:
+  order: 2
+
+group.kitchen_view_accent_light_automations:
+  order: 3
+
+############################################################
+# Living Room
+############################################################
+group.living_room_view_group:
+  order: 1
+
+group.living_room_view_hallway_light_automations:
+  order: 2
+
+############################################################
+# Entry
+############################################################
+group.entry_view_group:
+  order: 1
+
+group.entry_view_light_automations:
+  order: 2
+
+group.entry_view_door_lock_automations:
+  order: 3
+
+############################################################
+# Outside
+############################################################
+group.outside_view_group:
+  order: 1
+
+group.outside_view_garage_light_automations:
+  order: 2
+
+group.outside_view_back_patio_light_automations:
+  order: 3
+
+group.outside_view_front_porch_light_automations:
+  order: 4
+
+############################################################
+# Scenes
+############################################################
+group.scenes_view_bedroom:
+  order: 1
+
+group.scenes_view_back_patio:
+  order: 2
+
+group.scenes_view_entry:
+  order: 3
+
+group.scenes_view_garage:
+  order: 4
+
+group.scenes_view_hallway:
+  order: 5
+
+group.scenes_view_kitchen:
+  order: 6
+
+group.scenes_view_front_porch:
+  order: 7
+
+group.scenes_view_kitchen_accent:
+  order: 8
+
+############################################################
+# Automations
+############################################################
+group.automation_view_general_automations:
+  order: 1
+
+group.automation_view_general_light_automations:
+  order: 2
+
+group.automation_view_notification_automations:
+  order: 3
+
+group.automation_view_media_player_automations:
+  order: 4
+
+group.automation_view_presence_status_automations:
+  order: 5

@@ -1,0 +1,15 @@
+############################################################
+#
+#  Alexa Intents
+#
+############################################################
+
+intents:
+  FrontDoorLockIntent:
+    action:
+      service: script.turn_on
+      data_template:
+        entity_id: script.{{ LockCommand | replace(" ", "_") }}
+    speech:
+      type: plaintext
+      text: OK

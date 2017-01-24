@@ -1,0 +1,287 @@
+############################################################
+#
+# Template Sensors
+#
+############################################################
+
+- platform: template
+  sensors:
+    front_door_motion_status:
+      value_template: '{{ states.input_boolean.front_door_motion_detected.state }}'
+      friendly_name: 'Front Door Motion'
+
+- platform: template
+  sensors:
+    front_yard_motion_status:
+      value_template: '{{ states.input_boolean.front_yard_motion_detected.state }}'
+      friendly_name: 'Front Yard Motion'
+
+- platform: template
+  sensors:
+    mynt_keychain_status:
+      value_template: '{% if states.sensor.mynt_tracker.state == "back-yard" %}back yard{% else %}{{states.sensor.mynt_tracker.state}}{% endif %}'
+      friendly_name: 'Mynt Keychain'
+
+- platform: template
+  sensors:
+    ibeacon_status:
+      value_template: '{% if states.sensor.ibeacon.state == "back-yard" %}back yard{% else %}{{states.sensor.ibeacon.state}}{% endif %}'
+      friendly_name: !secret mqtt_room_ibeacon_name
+
+- platform: template
+  sensors:
+    jphone_battery:
+      unit_of_measurement: '%'
+      value_template: >-
+          {%- if states.device_tracker.hass_mqtt_jphone.attributes.battery %}
+              {{ states.device_tracker.hass_mqtt_jphone.attributes.battery }}
+          {% else %}
+              {{ states.sensor.jphone_battery.state }}
+          {%- endif %}
+
+- platform: template
+  sensors:
+    zphone_battery:
+      unit_of_measurement: '%'
+      value_template: >-
+          {%- if states.device_tracker.hass_mqtt_zphone.attributes.battery %}
+              {{ states.device_tracker.hass_mqtt_zphone.attributes.battery }}
+          {% else %}
+              {{ states.sensor.zphone_battery.state }}
+          {%- endif %}
+
+- platform: template
+  sensors:
+    tv_living_room_state:
+      value_template: '{{ states.media_player.living_room_tv.state }}'
+      friendly_name: 'Living Room TV'
+
+- platform: template
+  sensors:
+    living_room_temperature:
+      value_template: '{{ states.sensor.hallway__ecobee_temperature.state }}'
+      friendly_name: 'Temperature'
+
+- platform: template
+  sensors:
+    climate_away_mode:
+      value_template: '{{ states.climate.hallway__ecobee.attributes.away_mode == "on"}}'
+      friendly_name: 'Away Mode'
+
+- platform: template
+  sensors:
+    climate_fan:
+      value_template: '{{ states.climate.hallway__ecobee.attributes.fan == "on"}}'
+      friendly_name: 'Fan'
+
+- platform: template
+  sensors:
+    back_door_sensor_battery:
+      unit_of_measurement: '%'
+      value_template: >-
+          {%- if states.binary_sensor.back_door_sensor_14_0.attributes.battery_level %}
+              {{ states.binary_sensor.back_door_sensor_14_0.attributes.battery_level }}
+          {% else %}
+              {{ states.sensor.back_door_sensor_battery.state }}
+          {%- endif %}
+
+- platform: template
+  sensors:
+    motion_sensor_02_battery:
+      unit_of_measurement: '%'
+      value_template: >-
+          {%- if states.binary_sensor.motion_02_sensor_15_0.attributes.battery_level %}
+              {{ states.binary_sensor.motion_02_sensor_15_0.attributes.battery_level }}
+          {% else %}
+              {{ states.sensor.motion_sensor_02_battery.state }}
+          {%- endif %}
+
+- platform: template
+  sensors:
+    climate_current_operation:
+      value_template: '{{states.climate.hallway__ecobee.attributes.operation}}'
+      friendly_name: 'Current Operation'
+
+- platform: template
+  sensors:
+    climate_operation_mode:
+      value_template: '{{states.climate.hallway__ecobee.attributes.operation_mode}}'
+      friendly_name: 'Operation Mode'
+
+- platform: template
+  sensors:
+    ecobee_mode:
+      value_template: '{{ states.climate.hallway__ecobee.attributes.mode }}'
+      friendly_name: 'Mode'
+
+- platform: template
+  sensors:
+    ecobee_temperature:
+      value_template: '{{ states.climate.hallway__ecobee.attributes.current_temperature }}'
+      friendly_name: 'Temperature'
+      unit_of_measurement: °F
+
+- platform: template
+  sensors:
+    target_temperature:
+      value_template: '{% if states.climate.hallway__ecobee.attributes.operation_mode == "heat" %}{{states.climate.hallway__ecobee.attributes.target_temp_low}}{% else %}{{states.climate.hallway__ecobee.attributes.target_temp_high}}{% endif %}'
+      friendly_name: 'Target Temperature'
+
+- platform: template
+  sensors:
+    motion_sensor_battery:
+      unit_of_measurement: '%'
+      value_template: >-
+          {%- if states.binary_sensor.motion_sensor_2_0.attributes.battery_level %}
+              {{ states.binary_sensor.motion_sensor_2_0.attributes.battery_level }}
+          {% else %}
+              {{ states.sensor.motion_sensor_battery.state }}
+          {%- endif %}
+
+- platform: template
+  sensors:
+    kitchen_temp:
+      value_template: '{{ states.sensor.kitchen_temperature.state }}'
+      friendly_name: 'Temperature'
+
+- platform: template
+  sensors:
+    doorbell_active:
+      value_template: '{% if states.binary_sensor.doorbell_sensor_4_0.state == "on" %}off{% else %}off{% endif %}'
+      friendly_name: 'Doorbell'
+
+- platform: template
+  sensors:
+    doorbell_sensor_battery:
+      unit_of_measurement: '%'
+      value_template: >-
+          {%- if states.binary_sensor.doorbell_sensor_4_0.attributes.battery_level %}
+              {{ states.binary_sensor.doorbell_sensor_4_0.attributes.battery_level }}
+          {% else %}
+              {{ states.sensor.doorbell_sensor_battery.state }}
+          {%- endif %}
+
+- platform: template
+  sensors:
+    front_door_lock_battery:
+      unit_of_measurement: '%'
+      value_template: >-
+          {%- if states.lock.kwikset_touchpad_electronic_deadbolt_locked_8_0.attributes.battery_level %}
+              {{ states.lock.kwikset_touchpad_electronic_deadbolt_locked_8_0.attributes.battery_level }}
+          {% else %}
+              {{ states.sensor.front_door_lock_battery.state }}
+          {%- endif %}
+
+- platform: template
+  sensors:
+    back_bedroom_temperature:
+      value_template: '{{ states.sensor.bedroom__back_bedroom_temperature.state }}'
+      friendly_name: 'Temperature'
+
+- platform: template
+  sensors:
+    bedroom_temperature:
+      value_template: '{{ states.sensor.bedroom__bedroom_temperature.state }}'
+      friendly_name: 'Temperature'
+
+- platform: template
+  sensors:
+    tv_bedroom_state:
+      value_template: '{{ states.media_player.bedroom_tv.state }}'
+      friendly_name: 'Bedroom TV'
+
+- platform: template
+  sensors:
+    beast_server_cpu_usage:
+      value_template: '{{ states.sensor.beast_server_cpu_load.state }}%'
+      friendly_name: 'CPU Usage'
+
+- platform: template
+  sensors:
+    beast_server_disk_usage:
+      value_template: '{% if states.sensor.beast_server_disk_use_2.attributes.unit_of_measurement == "%" %}{{ states.sensor.beast_server_disk_use.state}}Gb ({{ states.sensor.beast_server_disk_use_2.state }}%){% else %}{{ states.sensor.beast_server_disk_use_2.state}}Gb ({{ states.sensor.beast_server_disk_use.state }}%){% endif %}'
+      friendly_name: 'Disk Usage'
+
+- platform: template
+  sensors:
+    beast_server_ram_usage:
+      value_template: '{% if states.sensor.beast_server_ram_use_2.attributes.unit_of_measurement == "%" %}{{ states.sensor.beast_server_ram_use.state}}Gb ({{ states.sensor.beast_server_ram_use_2.state }}%){% else %}{{ states.sensor.beast_server_ram_use_2.state}}Gb ({{ states.sensor.beast_server_ram_use.state }}%){% endif %}'
+      friendly_name: 'RAM Usage'
+
+- platform: template
+  sensors:
+    beast_server_running_count:
+      value_template: '{{ states.sensor.beast_server_running.state }}'
+      friendly_name: 'Active Processes'
+
+- platform: template
+  sensors:
+    beast_server_swap_usage:
+      value_template: '{% if states.sensor.beast_server_swap_use_2.attributes.unit_of_measurement == "%" %}{{ states.sensor.beast_server_swap_use.state}}Gb ({{ states.sensor.beast_server_swap_use_2.state }}%){% else %}{{ states.sensor.beast_server_swap_use_2.state}}Gb ({{ states.sensor.beast_server_swap_use.state }}%){% endif %}'
+      friendly_name: 'Swap Usage'
+
+- platform: template
+  sensors:
+    raspberry_pi_cpu_usage:
+      value_template: '{{ states.sensor.cpu_use.state }}%'
+      friendly_name: 'CPU Usage'
+
+- platform: template
+  sensors:
+    raspberry_pi_disk_usage:
+      value_template: '{% if states.sensor.disk_use__2.attributes.unit_of_measurement == "%" %}{{ states.sensor.disk_use_.state}}Gb ({{ states.sensor.disk_use__2.state }}%){% else %}{{ states.sensor.disk_use__2.state}}Gb ({{ states.sensor.disk_use_.state }}%){% endif %}'
+      friendly_name: 'Disk Usage'
+
+- platform: template
+  sensors:
+    raspberry_pi_ram_usage:
+      value_template: '{% if states.sensor.ram_use_2.attributes.unit_of_measurement == "%" %}{{ states.sensor.ram_use.state}}Mb ({{ states.sensor.ram_use_2.state }}%){% else %}{{ states.sensor.ram_use_2.state}}Mb ({{ states.sensor.ram_use.state }}%){% endif %}'
+      friendly_name: 'RAM Usage'
+
+- platform: template
+  sensors:
+    raspberry_pi_swap_usage:
+      value_template: '{% if states.sensor.swap_use_2.attributes.unit_of_measurement == "%" %}{{ states.sensor.swap_use.state}}Gb ({{ states.sensor.swap_use_2.state }}%){% else %}{{ states.sensor.swap_use_2.state}}Gb ({{ states.sensor.swap_use.state }}%){% endif %}'
+      friendly_name: 'Swap Usage'
+
+- platform: template
+  sensors:
+    plex_state_z:
+      value_template: !secret zplex_value_template
+      friendly_name: !secret z_name
+
+- platform: template
+  sensors:
+    plex_state_remote:
+      value_template: !secret remoteplex_value_template
+      friendly_name: !secret remote_name
+
+- platform: template
+  sensors:
+    plex_state_j:
+      value_template: !secret jplex_value_template
+      friendly_name: !secret j_name
+
+- platform: template
+  sensors:
+    plex_state_g:
+      value_template: !secret gplex_value_template
+      friendly_name: !secret g_name
+
+- platform: template
+  sensors:
+    harmony_hub_activity:
+      value_template: '{% if states.remote.harmony_hub.attributes.current_activity == "PowerOff" %}Off{% else %}{{states.remote.harmony_hub.attributes.current_activity}}{% endif %}'
+      friendly_name: 'Harmony Hub Activity'
+
+- platform: template
+  sensors:
+    next_comcast_bill:
+      value_template: '{% if states.calendar.comcast.attributes.description == None %}-{% else %}{{states.calendar.comcast.attributes.description}}{% endif %}'
+      friendly_name: 'Comcast Bill'
+
+- platform: template
+  sensors:
+    next_pge_bill:
+      value_template: '{% if states.calendar.pge.attributes.description == None %}-{% else %}{{states.calendar.pge.attributes.description}}{% endif %}'
+      friendly_name: 'PG&E Bill'

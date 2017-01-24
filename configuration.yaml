@@ -1,0 +1,182 @@
+############################################################
+#
+# Home Assistant Configuration
+#
+############################################################
+
+homeassistant:
+  name: Home
+  latitude: !secret config_latitude
+  longitude: !secret config_longitude
+  elevation: !secret config_elevation
+  unit_system: imperial
+  time_zone: !secret config_time_zone
+  customize: !include_dir_named customize/
+
+recorder:
+  db_url: !secret database_url
+
+history:
+  include:
+    entities:
+      - lock.kwikset_touchpad_electronic_deadbolt_locked_8_0
+      - light.linear_wd500z1_wall_dimmer_switch_level_9_0
+      - light.front_porch
+      - light.garage_door_north
+      - light.garage_door_south
+      - light.entry
+      - light.flux_kitchen_light
+      - light.hallway
+      - switch.back_patio_switch_11_0
+      - switch.kitchen_switch_10_0
+      - device_tracker.mynt_tracker
+      - device_tracker.hass_mqtt_jphone
+      - device_tracker.hass_mqtt_zphone
+      - sensor.plex
+      - sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+      - sensor.mynt_tracker
+      - climate.hallway__ecobee
+      - binary_sensor.back_bedroom_occupancy
+      - binary_sensor.bedroom_occupancy
+      - binary_sensor.hallway__ecobee_occupancy
+      - binary_sensor.kitchen_occupancy
+      - sensor.ibeacon
+
+http:
+  api_password: !secret http_password
+
+frontend:
+
+logbook:
+
+sun:
+
+updater:
+
+############################################################
+#
+# Components
+#
+############################################################
+
+alarm_control_panel:
+  platform: manual
+  code: !secret alarm_code
+
+ecobee:
+  api_key: !secret ecobee_api_key
+
+emulated_hue:
+  type: alexa
+  host_ip: 192.168.1.17
+  expose_by_default: false
+
+google:
+  client_id: !secret google_client_id
+  client_secret: !secret google_client_secret
+
+light:
+  - platform: hue
+    host: 192.168.1.8
+    allow_unreachable: true
+  - platform: flux_led
+    devices:
+      192.168.1.25:
+        name: flux_kitchen_light
+        protocol: 'ledenet'
+        mode: rgb
+
+mqtt:
+  broker: 127.0.0.1
+  port: 1883
+  client_id: !secret mqtt_client_id
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+
+notify:
+  - name: browser_notifications
+    platform: html5
+    gcm_api_key: !secret notify_http_api_key
+    gcm_sender_id: !secret notify_http_sender_id
+  - name: ecobee
+    platform: ecobee
+  - name: telegram
+    platform: telegram
+    api_key: !secret telegram_api_key
+    chat_id: !secret telegram_chat_id
+
+remote:
+  - platform: harmony
+    name: 'Harmony Hub'
+    host: 192.168.1.29
+    activity: 'Echo Dot'
+
+shell_command:
+  kodi_display_camera: sh /home/hass/.homeassistant/bin/kodi_camera_popup.sh
+  kodi_doorbell_notification: sh /home/hass/.homeassistant/bin/kodi_doorbell_notification.sh
+  take_pic_porch: curl -o /home/hass/.homeassistant/www/images/snapshot.jpg 'http://192.168.1.18:8765/picture/1/current/'
+
+weblink:
+  entities:
+    - name: CouchPotato
+      url: http://192.168.1.18:5050/
+    - name: Front Door Camera
+      url: http://192.168.1.19
+    - name: Front Yard Camera
+      url: http://192.168.1.25
+    - name: Headphones
+      url: http://192.168.1.18:8182/headphones/home
+    - name: MotionEye
+      url: http://192.168.1.18:8765/
+    - name: NZBGet
+      url: http://192.168.1.18:6789/
+    - name: Plex
+      url: http://192.168.1.18:32400/web/index.html
+    - name: PlexPy
+      url: http://192.168.1.18:8181/auth/login
+    - name: Sonarr
+      url: http://192.168.1.18:8989/sonarr/
+    - name: unRAID Server
+      url: http://192.168.1.18:8008
+
+zone:
+  - name: Home
+    latitude: !secret config_latitude
+    longitude: !secret config_longitude
+    radius: 200
+    icon: mdi:home
+
+zwave:
+  usb_path: /dev/ttyACM0
+  config_path: /srv/hass/hass_venv/lib/python3.4/site-packages/libopenzwave-0.3.1-py3.4-linux-armv7l.egg/config
+  polling_interval: 30000
+  customize:
+    light.linear_wd500z1_wall_dimmer_switch_level_9_0:
+      polling_intensity: 1
+      refresh_value: true
+      delay: 5
+    switch.back_patio_switch_11_0:
+      polling_intensity: 1
+    switch.kitchen_switch_10_0:
+      polling_intensity: 1
+
+############################################################
+#
+# Includes
+#
+############################################################
+
+alexa: !include misc/alexa.yaml
+automation: !include_dir_named automation/
+binary_sensor: !include_dir_named binary_sensor/
+camera: !include misc/cameras.yaml
+device_tracker: !include misc/device_trackers.yaml
+group: !include_dir_named group/
+input_boolean: !include misc/input_booleans.yaml
+input_select: !include misc/input_select.yaml
+input_slider: !include misc/input_sliders.yaml
+media_player: !include misc/media_players.yaml
+scene: !include_dir_named scene/
+script: !include_dir_named script/
+sensor: !include_dir_named sensor/
+switch: !include_dir_named switch/

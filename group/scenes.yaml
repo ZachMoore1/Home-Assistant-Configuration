@@ -1,0 +1,82 @@
+############################################################
+#
+# Scenes View
+#
+############################################################
+
+scenes_view:
+  view: yes
+  entities:
+    - group.scenes_view_hallway
+    - group.scenes_view_entry
+    - group.scenes_view_bedroom
+    - group.scenes_view_front_porch
+    - group.scenes_view_back_patio
+    - group.scenes_view_garage
+    - group.scenes_view_kitchen
+    - group.scenes_view_kitchen_accent
+
+scenes_view_bedroom:
+  name: "Bedroom"
+  entities:
+    - scene.bedroom_off
+    - scene.bedroom_dim
+    - scene.bedroom_normal
+    - input_slider.bedroom_brightness
+
+scenes_view_front_porch:
+  name: "Front Porch"
+  entities:
+    - scene.front_porch_off
+    - scene.front_porch_dim
+    - scene.front_porch_normal
+    - input_slider.front_porch_brightness
+
+scenes_view_garage:
+  name: "Garage"
+  entities:
+    - scene.garage_off
+    - scene.garage_dim
+    - scene.garage_normal
+    - input_slider.garage_brightness
+
+scenes_view_hallway:
+  name: "Hallway"
+  entities:
+    - scene.hallway_off
+    - scene.hallway_dim
+    - scene.hallway_normal
+    - input_slider.hallway_brightness
+
+scenes_view_entry:
+  name: "Entry"
+  entities:
+    - scene.entry_off
+    - scene.entry_dim
+    - scene.entry_normal
+    - input_slider.entry_brightness
+
+scenes_view_back_patio:
+  name: "Back Patio"
+  entities:
+    - scene.back_patio_off
+    - scene.back_patio_normal
+
+scenes_view_kitchen:
+  name: "Kitchen"
+  entities:
+    - scene.kitchen_off
+    - scene.kitchen_normal
+
+scenes_view_kitchen_accent:
+  name: "Kitchen Accent"
+  entities:
+    - scene.kitchen_accent_off
+    - scene.kitchen_accent_blue
+    - scene.kitchen_accent_green
+    - scene.kitchen_accent_orange
+    - scene.kitchen_accent_purple
+    - scene.kitchen_accent_red
+    - scene.kitchen_accent_teal
+    - scene.kitchen_accent_white
+    - scene.kitchen_accent_yellow

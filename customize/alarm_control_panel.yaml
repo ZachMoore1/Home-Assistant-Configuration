@@ -1,0 +1,9 @@
+###########################################################
+#
+# Alarm Control Panel Customizations
+#
+############################################################
+
+alarm_control_panel.ha_alarm:
+  friendly_name: 'Alarm Status'
+  icon: mdi:shield

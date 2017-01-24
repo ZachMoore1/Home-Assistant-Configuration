@@ -1,0 +1,195 @@
+############################################################
+#
+# Bedroom light Automations
+#
+############################################################
+
+############################################################
+# Turns on the master bedroom light dimmed 30 minutes before sunset if zphone is at home.
+############################################################
+- alias: Turn on bedroom light at sunset
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '-00:30:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.zphone_away_status
+      state: 'off'
+  action:
+    - service: light.turn_on
+      entity_id: light.linear_wd500z1_wall_dimmer_switch_level_9_0
+      data:
+        brightness: 127
+
+############################################################
+# Turns on the master bedroom light dimmed when it's overcast outside and zphone is at
+# home. Disabled - Need to work on the trigger for this.
+############################################################
+- alias: Turn on bedroom light if overcast
+  initial_state: false
+  trigger:
+    - platform: time
+      minutes: '/15'
+      seconds: 0
+    - platform: state
+      entity_id: sensor.dark_sky_cloud_cover
+      state: '0.75'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: 'input_boolean.zphone_away_status'
+        state: 'off'
+      - condition: state
+        entity_id: light.linear_wd500z1_wall_dimmer_switch_level_9_0
+        state: 'off'
+      - condition: time
+        after: '12:00:00'
+        before: '18:00:00'
+  action:
+    - service: light.turn_on
+      entity_id: light.linear_wd500z1_wall_dimmer_switch_level_9_0
+      data:
+        brightness: 127
+
+############################################################
+# Turns off the master bedroom light when zphone changes to away.
+############################################################
+- alias: Turn off bedroom light when zphone leaves
+  trigger:
+    - platform: state
+      entity_id: input_boolean.zphone_away_status
+      from: 'off'
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: light.linear_wd500z1_wall_dimmer_switch_level_9_0
+      state: 'on'
+  action:
+    service: light.turn_off
+    entity_id: light.linear_wd500z1_wall_dimmer_switch_level_9_0
+
+############################################################
+# Turns on the master bedroom light when zphone arrives home at night.  There is a one
+# minute delay that way the light turns on closer to the point where the room is entered.
+############################################################
+- alias: Turn on bedroom light when zphone gets home
+  trigger:
+    - platform: state
+      entity_id: input_boolean.zphone_away_status
+      from: 'on'
+      to: 'off'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+      - condition: state
+        entity_id: light.linear_wd500z1_wall_dimmer_switch_level_9_0
+        state: 'off'
+  action:
+    - delay: 00:01:00
+    - service: light.turn_on
+      entity_id: light.linear_wd500z1_wall_dimmer_switch_level_9_0
+
+############################################################
+# Changes the brightness level of the master bedroom light based on the input slider values.
+############################################################
+- alias: Input slider bedroom light
+  trigger:
+    platform: state
+    entity_id: input_slider.bedroom_brightness
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.linear_wd500z1_wall_dimmer_switch_level_9_0
+        brightness: '{{ trigger.to_state.state | int }}'
+
+############################################################
+# Turns on the master bedroom light when the xbox is paused at night.
+############################################################
+- alias: Turn on bedroom light when media is paused
+  initial_state: false
+  trigger:
+    - platform: state
+      entity_id: media_player.xbox_bedroom
+      from: 'playing'
+      to: 'paused'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: state
+      entity_id: light.linear_wd500z1_wall_dimmer_switch_level_9_0
+      state: 'on'
+  action:
+    service: scene.turn_on
+    entity_id: scene.bedroom_full
+
+############################################################
+# Turns on the master bedroom light dimmed when the xbox starts playing media at night.
+############################################################
+- alias: Dim bedroom light when media starts playing
+  initial_state: false
+  trigger:
+    - platform: state
+      entity_id: media_player.xbox_bedroom
+      to: 'playing'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: state
+      entity_id: light.linear_wd500z1_wall_dimmer_switch_level_9_0
+      state: 'on'
+  action:
+    service: scene.turn_on
+    entity_id: scene.bedroom_dim
+
+############################################################
+# Turns on the master bedroom light when the xbox stops playing media at night.
+############################################################
+- alias: Turn on bedroom light when media is stopped
+  initial_state: false
+  trigger:
+    - platform: state
+      entity_id: media_player.xbox_bedroom
+      from: 'playing'
+      to: 'idle'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: time
+      before: '23:00:00'
+    - condition: state
+      entity_id: light.linear_wd500z1_wall_dimmer_switch_level_9_0
+      state: 'on'
+  action:
+    service: scene.turn_on
+    entity_id: scene.bedroom_full
+
+############################################################
+# Keeps the master bedroom light off when the xbox stops playing media late at night.
+############################################################
+- alias: Turn off bedroom light when media is stopped
+  initial_state: false
+  trigger:
+    - platform: state
+      entity_id: media_player.xbox_bedroom
+      from: 'playing'
+      to: 'idle'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: time
+      after: '23:00:01'
+    - condition: state
+      entity_id: light.linear_wd500z1_wall_dimmer_switch_level_9_0
+      state: 'off'
+  action:
+    service: scene.turn_on
+    entity_id: scene.bedroom_off

@@ -1,0 +1,149 @@
+###########################################################
+#
+# Scene Customizations
+#
+############################################################
+
+scene.hallway_off:
+  icon: mdi:brightness-1
+  friendly_name: 'Off'
+
+scene.hallway_dim:
+  icon: mdi:brightness-6
+  friendly_name: 'Dim'
+
+scene.hallway_normal:
+  icon: mdi:brightness-5
+  friendly_name: 'Full'
+
+scene.entry_off:
+  icon: mdi:brightness-1
+  friendly_name: 'Off'
+
+scene.entry_dim:
+  icon: mdi:brightness-6
+  friendly_name: 'Dim'
+
+scene.entry_normal:
+  icon: mdi:brightness-5
+  friendly_name: 'Full'
+
+scene.kitchen_off:
+  icon: mdi:brightness-1
+  friendly_name: 'Off'
+
+scene.kitchen_normal:
+  icon: mdi:brightness-5
+  friendly_name: 'Full'
+
+scene.back_patio_off:
+  icon: mdi:brightness-1
+  friendly_name: 'Off'
+
+scene.back_patio_normal:
+  icon: mdi:brightness-5
+  friendly_name: 'Full'
+
+scene.bedroom_off:
+  icon: mdi:brightness-1
+  friendly_name: 'Off'
+
+scene.bedroom_dim:
+  icon: mdi:brightness-6
+  friendly_name: 'Dim'
+
+scene.bedroom_normal:
+  icon: mdi:brightness-5
+  friendly_name: 'Full'
+
+scene.front_porch_off:
+  icon: mdi:brightness-1
+  friendly_name: 'Off'
+
+scene.front_porch_dim:
+  icon: mdi:brightness-6
+  friendly_name: 'Dim'
+
+scene.front_porch_normal:
+  icon: mdi:brightness-5
+  friendly_name: 'Full'
+
+scene.garage_off:
+  icon: mdi:brightness-1
+  friendly_name: 'Off'
+
+scene.garage_dim:
+  icon: mdi:brightness-6
+  friendly_name: 'Dim'
+
+scene.garage_normal:
+  icon: mdi:brightness-5
+  friendly_name: 'Full'
+
+scene.kitchen_accent_blue:
+  friendly_name: 'Blue'
+  icon: mdi:water
+
+scene.kitchen_accent_green:
+  friendly_name: 'Green'
+  icon: mdi:water
+
+scene.kitchen_accent_orange:
+  friendly_name: 'Orange'
+  icon: mdi:water
+
+scene.kitchen_accent_purple:
+  friendly_name: 'Purple'
+  icon: mdi:water
+
+scene.kitchen_accent_red:
+  friendly_name: 'Red'
+  icon: mdi:water
+
+scene.kitchen_accent_teal:
+  friendly_name: 'Teal'
+  icon: mdi:water
+
+scene.kitchen_accent_white:
+  friendly_name: 'White'
+  icon: mdi:water
+
+scene.kitchen_accent_yellow:
+  friendly_name: 'Yellow'
+  icon: mdi:water
+
+scene.kitchen_accent_blue_dim:
+  friendly_name: 'Blue - Dim'
+  icon: mdi:invert-colors
+
+scene.kitchen_accent_green_dim:
+  friendly_name: 'Green - Dim'
+  icon: mdi:invert-colors
+
+scene.kitchen_accent_orange_dim:
+  friendly_name: 'Orange - Dim'
+  icon: mdi:invert-colors
+
+scene.kitchen_accent_purple_dim:
+  friendly_name: 'Purple - Dim'
+  icon: mdi:invert-colors
+
+scene.kitchen_accent_red_dim:
+  friendly_name: 'Red - Dim'
+  icon: mdi:invert-colors
+
+scene.kitchen_accent_teal_dim:
+  friendly_name: 'Teal - Dim'
+  icon: mdi:invert-colors
+
+scene.kitchen_accent_white_dim:
+  friendly_name: 'White - Dim'
+  icon: mdi:invert-colors
+
+scene.kitchen_accent_yellow_dim:
+  friendly_name: 'Yellow - Dim'
+  icon: mdi:invert-colors
+
+scene.kitchen_accent_off:
+  friendly_name: 'Off'
+  icon: mdi:water-off

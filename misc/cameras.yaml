@@ -1,0 +1,13 @@
+############################################################
+#
+#  Cameras
+#
+############################################################
+
+- platform: generic
+  name: 'Front Door Camera'
+  still_image_url: http://192.168.1.18:8765/picture/1/current/
+
+- platform: generic
+  name: 'Front Yard Camera'  
+  still_image_url: http://192.168.1.18:8765/picture/2/current/

@@ -1,0 +1,146 @@
+############################################################
+#
+# Kitchen Accent Lighting Automations
+#
+############################################################
+
+############################################################
+# Turns on the kitchen accent light to full white when the front door is unlocked or motion is
+# detected in the kitchen at night.
+############################################################
+- alias: Turn on kitchen accent light when door unlocked or motion detected
+  trigger:
+    - platform: state
+      entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+      to: "19"
+    - platform: state
+      entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+      to: "22"
+    - platform: state
+      entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+      to: "25"
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_2_0
+      from: 'off'
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+      - condition: state
+        entity_id: switch.kitchen_switch_10_0
+        state: 'off'
+      - condition: time
+        before: '22:00:00'
+  action:
+    - service: script.turn_on
+      data:
+        entity_id: script.turn_on_kitchen_accent_light_and_start_off_timer
+
+############################################################
+# Turns on the kitchen accent light to a dim teal when the front door is unlocked or motion is
+# detected in the kitchen after 10:00 PM at night.
+############################################################
+- alias: Turn on kitchen accent light dimmed when door unlocked or motion detected
+  trigger:
+    - platform: state
+      entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+      to: "19"
+    - platform: state
+      entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+      to: "22"
+    - platform: state
+      entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+      to: "25"
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_2_0
+      from: 'off'
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+      - condition: state
+        entity_id: switch.kitchen_switch_10_0
+        state: 'off'
+      - condition: time
+        after: '22:00:00'
+  action:
+    - service: script.turn_on
+      data:
+        entity_id: script.turn_on_kitchen_accent_light_dimmed_and_start_off_timer
+
+############################################################
+# Turns off the kitchen accent light if it's on when the kitchen light switch is turned on.  Also
+# sets an input boolean to on in order to turn the accent light back on when the kitchen switch
+# is turned back off.  Will also turn off the accent light off timer which is restarted when the
+# kitchen accent light comes back on.
+############################################################
+- alias: Turn off kitchen accent light when kitchen switch turns on
+  trigger:
+    - platform: state
+      entity_id: switch.kitchen_switch_10_0
+      from: 'off'
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: light.flux_kitchen_light
+      state: 'on'
+  action:
+    - service: input_boolean.turn_on
+      data_template:
+          entity_id: input_boolean.kitchen_accent_status
+    - service: script.turn_off
+      data:
+        entity_id: script.kitchen_accent_light_off_timer
+    - service: light.turn_off
+      data:
+        entity_id: light.flux_kitchen_light
+
+############################################################
+# Starts the kitchen accent light off timer when motion is no longer detected in the kitchen.
+############################################################
+- alias: Turn off kitchen accent light when there is no movement
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_2_0
+      from: 'on'
+      to: 'off'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+      - condition: state
+        entity_id: light.flux_kitchen_light
+        state: 'on'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.kitchen_accent_light_off_timer
+
+############################################################
+# Starts the kitchen accent light off timer when occupancy is no longer detected in the kitchen.
+############################################################
+- alias: Turn off kitchen accent light when there is no occupancy
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.kitchen_occupancy
+      from: 'on'
+      to: 'off'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+      - condition: state
+        entity_id: light.flux_kitchen_light
+        state: 'on'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.kitchen_accent_light_off_timer

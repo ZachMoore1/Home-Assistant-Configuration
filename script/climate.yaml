@@ -1,0 +1,121 @@
+############################################################
+#
+# Climate Scripts
+#
+############################################################
+
+############################################################
+# Turns the target temperature down one degree based on the current operation mode.
+############################################################
+adjust_target_temp_down:
+  alias: "Adjust Target Temperature Down"
+  sequence:
+    service_template: >
+      {% if states.climate.hallway__ecobee.attributes.operation_mode == "heat" %}
+        script.adjust_target_temp_down_heat
+      {% else %}
+        script.adjust_target_temp_down_cool
+      {% endif %}
+
+############################################################
+# Turns the cooling target temperature down one degree.
+############################################################
+adjust_target_temp_down_cool:
+  alias: "Adjust Target Temperature Down Cool"
+  sequence:
+    - service: climate.set_temperature
+      entity_id: climate.hallway__ecobee
+      data_template:
+        temperature: >
+          {{ states.climate.hallway__ecobee.attributes.target_temp_high - 1 | int }}
+        target_temp_low: >
+          {{ states.climate.hallway__ecobee.attributes.target_temp_low }}
+        target_temp_high: >
+          {{ states.climate.hallway__ecobee.attributes.target_temp_high - 1 | int }}
+
+############################################################
+# Turns the heating target temperature down one degree.
+############################################################
+adjust_target_temp_down_heat:
+  alias: "Adjust Target Temperature Down Heat"
+  sequence:
+    - service: climate.set_temperature
+      entity_id: climate.hallway__ecobee
+      data_template:
+        temperature: >
+          {{ states.climate.hallway__ecobee.attributes.target_temp_low | int - 1 }}
+        target_temp_low: >
+          {{ states.climate.hallway__ecobee.attributes.target_temp_low | int - 1 }}
+        target_temp_high: >
+          {{ states.climate.hallway__ecobee.attributes.target_temp_high }}
+
+############################################################
+# Turns the target temperature up one degree based on the current operation mode.
+############################################################
+adjust_target_temp_up:
+  alias: "Adjust Target Temperature Up"
+  sequence:
+    service_template: >
+      {% if states.climate.hallway__ecobee.attributes.operation_mode == "heat" %}
+        script.adjust_target_temp_up_heat
+      {% else %}
+        script.adjust_target_temp_up_cool
+      {% endif %}
+
+############################################################
+# Turns the cooling target temperature up one degree.
+############################################################
+adjust_target_temp_up_cool:
+  alias: "Adjust Target Temperature Up Cool"
+  sequence:
+    - service: climate.set_temperature
+      entity_id: climate.hallway__ecobee
+      data_template:
+        temperature: >
+          {{ states.climate.hallway__ecobee.attributes.target_temp_high + 1 | int }}
+        target_temp_low: >
+          {{ states.climate.hallway__ecobee.attributes.target_temp_low }}
+        target_temp_high: >
+          {{ states.climate.hallway__ecobee.attributes.target_temp_high + 1 | int }}
+
+############################################################
+# Turns the heating target temperature up one degree.
+############################################################
+adjust_target_temp_up_heat:
+  alias: "Adjust Target Temperature Up Heat"
+  sequence:
+    - service: climate.set_temperature
+      entity_id: climate.hallway__ecobee
+      data_template:
+        temperature: >
+          {{ states.climate.hallway__ecobee.attributes.target_temp_low | int + 1 }}
+        target_temp_low: >
+          {{ states.climate.hallway__ecobee.attributes.target_temp_low | int + 1 }}
+        target_temp_high: >
+          {{ states.climate.hallway__ecobee.attributes.target_temp_high }}
+
+############################################################
+# Disables away mode on the thermostat.
+############################################################
+disable_away_mode:
+  alias: "Disable Away Mode"
+  sequence:
+    - condition: template
+      value_template: '{{ states.climate.hallway__ecobee.attributes.away_mode == "on" }}'
+    - service: climate.set_away_mode
+      entity_id: climate.hallway__ecobee
+      data:
+        away_mode: "off"
+
+############################################################
+# Enables away mode on the thermostat.
+############################################################
+enable_away_mode:
+  alias: "Enable Away Mode"
+  sequence:
+    - condition: template
+      value_template: '{{ states.climate.hallway__ecobee.attributes.away_mode == "off" }}'
+    - service: climate.set_away_mode
+      entity_id: climate.hallway__ecobee
+      data:
+        away_mode: "on"

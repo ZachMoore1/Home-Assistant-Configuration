@@ -1,0 +1,17 @@
+*.pid
+*.xml
+*.csr
+*.crt
+*.key
+*.conf
+*.log
+*.db
+deps
+www
+.google.token
+.HA_VERSION
+.uuid
+google_calendars.yaml
+known_devices.yaml
+pyozw.sqlite
+secrets.yaml

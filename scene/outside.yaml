@@ -1,0 +1,92 @@
+############################################################
+#
+# Outside Scenes
+#
+############################################################
+
+- name: Back patio off
+  entities:
+      switch.back_patio_switch_11_0:
+          state: off
+
+- name: Back patio full
+  entities:
+      switch.back_patio_switch_11_0:
+          state: on
+
+- name: Front porch off
+  entities:
+      light.front_porch:
+          state: off
+          transition: 0
+
+- name: Front porch dim
+  entities:
+      light.front_porch:
+          state: on
+          transition: 0
+          brightness: 175
+
+- name: Front porch full
+  entities:
+      light.front_porch:
+          state: on
+          transition: 0
+          brightness: 255
+
+- name: Garage off
+  entities:
+      group.garage_lights:
+          state: off
+
+- name: Garage dim
+  entities:
+      group.garage_lights:
+          state: on
+          transition: 2
+          brightness: 175
+
+- name: Garage full
+  entities:
+      group.garage_lights:
+          state: on
+          transition: 2
+          brightness: 254
+
+- name: Garage door north off
+  entities:
+      light.garage_door_north:
+          state: off
+
+- name: Garage door north dim
+  entities:
+      light.garage_door_north:
+          state: on
+          transition: 2
+          brightness: 175
+
+- name: Garage door north full
+  entities:
+      light.garage_door_north:
+          state: on
+          transition: 2
+          brightness: 254
+
+- name: Garage door south off
+  entities:
+      light.garage_door_south:
+          state: off
+
+- name: Garage door south dim
+  entities:
+      light.garage_door_south:
+          state: on
+          transition: 2
+          brightness: 175
+
+- name: Garage door south full
+  entities:
+      light.garage_door_south:
+          state: on
+          transition: 2
+          brightness: 254

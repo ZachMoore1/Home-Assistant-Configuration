@@ -1,0 +1,43 @@
+############################################################
+#
+# Kitchen View
+#
+############################################################
+
+kitchen_view:
+  view: yes
+  entities:
+    - group.kitchen_view_group
+    - group.kitchen_view_light_automations
+    - group.kitchen_view_accent_light_automations
+
+kitchen_view_accent_light_automations:
+  name:  "Kitchen Accent Light Automations"
+  control: hidden
+  entities:
+    - automation.motion_sensor_turn_on_kitchen_lights_when_there_is_movement
+    - automation.motion_sensor_turn_on_kitchen_lights_dimmed_when_there_is_movement
+    - automation.front_door_turn_on_kitchen_lights_when_door_is_unlocked
+    - automation.front_door_turn_on_kitchen_lights_dimmed_when_door_is_unlocked
+    - automation.motion_sensor_turn_on_kitchen_lights_when_there_is_movement_hallway
+    - automation.motion_sensor_turn_on_kitchen_lights_dimmed_when_there_is_movement_hallway
+    - automation.motion_sensor_turn_off_kitchen_lights_when_there_is_no_movement
+    - automation.motion_sensor_turn_off_kitchen_lights_when_there_is_no_occupancy
+
+kitchen_view_group:
+  name:  "Kitchen"
+  control: hidden
+  entities:
+    - binary_sensor.kitchen_occupancy
+    - sensor.kitchen_temp
+    - binary_sensor.motion_sensor_2_0
+    - switch.kitchen_switch_10_0
+    - light.flux_kitchen_light
+
+kitchen_view_light_automations:
+  name:  "Kitchen Light Automations"
+  control: hidden
+  entities:
+    - automation.lights_turn_back_on_kitchen_accent_light_dimmed_when_the_kitchen_switch_is_turned_off
+    - automation.lights_turn_back_on_kitchen_accent_light_when_the_kitchen_switch_is_turned_off
+    - automation.lights_turn_off_kitchen_accent_light_when_the_kitchen_switch_is_turned_on

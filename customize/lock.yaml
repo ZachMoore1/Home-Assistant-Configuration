@@ -1,0 +1,9 @@
+###########################################################
+#
+# Lock Customizations
+#
+############################################################
+
+lock.kwikset_touchpad_electronic_deadbolt_locked_8_0:
+  friendly_name: 'Front Door'
+  homebridge_name: "Front Door"

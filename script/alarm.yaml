@@ -1,0 +1,38 @@
+############################################################
+#
+# Alarm Scripts
+#
+############################################################
+
+############################################################
+# Set the HA alarm to Armed Away mode.
+############################################################
+set_alarm_armed_away:
+  alias: "Armed Away"
+  sequence:
+    - service: alarm_control_panel.alarm_arm_away
+      data:
+        code: !secret alarm_code
+        entity_id: alarm_control_panel.ha_alarm
+
+############################################################
+# Set the HA alarm to Armed Home mode.
+############################################################
+set_alarm_armed_home:
+  alias: "Armed Home"
+  sequence:
+    - service: alarm_control_panel.alarm_arm_home
+      data:
+        code: !secret alarm_code
+        entity_id: alarm_control_panel.ha_alarm
+
+############################################################
+# Set the HA alarm to Disarmed mode.
+############################################################
+set_alarm_disarmed:
+  alias: "Disarmed"
+  sequence:
+    - service: alarm_control_panel.alarm_disarm
+      data:
+        code: !secret alarm_code
+        entity_id: alarm_control_panel.ha_alarm

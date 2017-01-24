@@ -1,0 +1,40 @@
+############################################################
+#
+# Input Sliders
+#
+############################################################
+
+hallway_brightness:
+  name: Manual
+  initial: 1
+  min: 0
+  max: 255
+  step: 1
+
+entry_brightness:
+  name: Manual
+  initial: 1
+  min: 0
+  max: 255
+  step: 1
+
+bedroom_brightness:
+  name: Manual
+  initial: 1
+  min: 0
+  max: 255
+  step: 1
+
+front_porch_brightness:
+  name: Manual
+  initial: 1
+  min: 0
+  max: 255
+  step: 1
+
+garage_brightness:
+  name: Manual
+  initial: 1
+  min: 0
+  max: 255
+  step: 1

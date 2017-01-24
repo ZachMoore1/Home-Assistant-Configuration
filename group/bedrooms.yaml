@@ -1,0 +1,58 @@
+############################################################
+#
+# Bedrooms View
+#
+############################################################
+
+bedrooms_view:
+  view: yes
+  entities:
+    - group.bedrooms_view_master_bedroom
+    - group.bedrooms_view_master_bedroom_light_automations
+    - group.bedrooms_view_bedroom
+    - group.bedrooms_view_back_bedroom
+    - group.bedrooms_view_harmony_control
+
+bedrooms_view_back_bedroom:
+  name: !secret back_bedroom_name
+  entities:
+    - binary_sensor.bedroom__back_bedroom_occupancy
+    - sensor.back_bedroom_temperature
+
+bedrooms_view_harmony_control:
+  name:  "Harmony Control"
+  control: hidden
+  entities:
+    - script.harmony_volume_up
+    - script.harmony_mute
+    - script.harmony_volume_down
+    - input_select.bedroom_harmony
+
+bedrooms_view_bedroom:
+  name: !secret bedroom_name
+  entities:
+    - binary_sensor.bedroom__bedroom_occupancy
+    - sensor.bedroom_temperature
+
+bedrooms_view_master:
+  name: !secret master_bedroom_name
+  entities:
+    - sensor.tv_bedroom_state
+    - sensor.harmony_hub_activity
+    - group.bedrooms_view_master_light
+    - binary_sensor.bedroom_motion
+
+bedrooms_view_master_light:
+  name: "Light"
+  icon: mdi:white-balance-incandescent
+  entities:
+    - light.linear_wd500z1_wall_dimmer_switch_level_9_0
+
+bedrooms_view_master_bedroom_light_automations:
+  name:  !secret master_bedroom_light_automation_name
+  control: hidden
+  entities:
+    - automation.sun_turn_on_bedroom_light_at_sunset
+    - automation.presence_turn_on_bedroom_light_when_zphone_gets_home
+    - automation.presence_turn_off_bedroom_light_when_zphone_is_away
+    - automation.sun_turn_on_bedroom_light_if_overcast

@@ -1,0 +1,38 @@
+############################################################
+#
+# Entry View
+#
+############################################################
+
+entry_view:
+  view: yes
+  entities:
+    - group.entry_view_group
+    - group.entry_view_door_lock_automations
+    - group.entry_view_light_automations
+
+entry_view_door_lock_automations:
+  name:  "Door Lock Automations"
+  control: hidden
+  entities:
+    - automation.presence_unlock_front_door_for_5_minutes_on_mynt_tracker_arrival
+    - automation.presence_unlock_front_door_for_5_minutes_on_jphone_arrival
+    - automation.presence_unlock_front_door_for_5_minutes_on_zphone_arrival
+    - automation.front_door_lock_front_door_after_5_minutes_after_being_unlocked
+    - automation.front_door_sync_lockunlock_state
+    - automation.presence_lock_the_front_door_if_nobody_is_home
+
+entry_view_group:
+  name:  "Entry"
+  control: hidden
+  entities:
+    - light.entry 
+    - lock.kwikset_touchpad_electronic_deadbolt_locked_8_0
+    - sensor.doorbell_active
+
+entry_view_light_automations:
+  name:  "Entry Light Automations"
+  control: hidden
+  entities:
+    - automation.front_door_turn_on_entry_light_dimmed_when_door_is_unlocked
+    - automation.front_door_turn_on_entry_light_when_door_is_unlocked

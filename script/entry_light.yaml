@@ -1,0 +1,49 @@
+############################################################
+#
+# Entry light Scripts
+#
+############################################################
+
+############################################################
+# Turns on the entry light and starts the off timer.
+############################################################
+turn_on_entry_light_and_start_off_timer:
+  alias: "Turn on entry light  and reset off timer"
+  sequence:
+    - service: script.turn_off
+      data:
+        entity_id: script.entry_light_off_timer
+    - service: scene.turn_on
+      data:
+        entity_id: scene.entry_full
+    - service: script.turn_on
+      data:
+        entity_id: script.entry_light_off_timer
+
+############################################################
+# Turns on the entry light dimmed and starts the off timer.
+############################################################
+turn_on_entry_light_dimmed_and_start_off_timer:
+  alias: "Turn on entry light  and reset off timer"
+  sequence:
+    - service: script.turn_off
+      data:
+        entity_id: script.entry_light_off_timer
+    - service: scene.turn_on
+      data:
+        entity_id: scene.entry_dim
+    - service: script.turn_on
+      data:
+        entity_id: script.entry_light_off_timer
+
+############################################################
+# Turns off the entry light after a 2 minute delay.
+############################################################
+entry_light_off_timer:
+  alias: "Turn off entry light after 2 minutes"
+  sequence:
+    - delay:
+        minutes: 2
+    - service: light.turn_off
+      data:
+        entity_id: light.entry

@@ -1,0 +1,132 @@
+############################################################
+#
+# Kitchen Scenes
+#
+############################################################
+
+- name: Kitchen off
+  entities:
+      switch.kitchen_switch_10_0:
+          state: off
+
+- name: Kitchen full
+  entities:
+      switch.kitchen_switch_10_0:
+          state: on
+
+- name: Kitchen Accent Red
+  entities:
+       light.flux_kitchen_light:
+           state: on
+           color_name: 'Red'
+           brightness: 255
+
+- name: Kitchen Accent Red Dim
+  entities:
+       light.flux_kitchen_light:
+           state: on
+           color_name: 'Red'
+           brightness: 100
+
+- name: Kitchen Accent Blue
+  entities:
+       light.flux_kitchen_light:
+           state: on
+           color_name: 'Blue'
+           brightness: 255
+
+- name: Kitchen Accent Blue Dim
+  entities:
+       light.flux_kitchen_light:
+           state: on
+           color_name: 'Blue'
+           brightness: 100
+
+- name: Kitchen Accent Green
+  entities:
+       light.flux_kitchen_light:
+           state: on
+           color_name: 'Green'
+           brightness: 255
+
+- name: Kitchen Accent Green Dim
+  entities:
+       light.flux_kitchen_light:
+           state: on
+           color_name: 'Green'
+           brightness: 100
+
+- name: Kitchen Accent White
+  entities:
+       light.flux_kitchen_light:
+           state: on
+           color_name: 'White'
+           brightness: 255
+
+- name: Kitchen Accent White Dim
+  entities:
+       light.flux_kitchen_light:
+           state: on
+           color_name: 'White'
+           brightness: 100
+
+- name: Kitchen Accent Teal
+  entities:
+       light.flux_kitchen_light:
+           state: on
+           color_name: 'Teal'
+           brightness: 255
+
+- name: Kitchen Accent Teal Dim
+  entities:
+       light.flux_kitchen_light:
+           state: on
+           color_name: 'Teal'
+           brightness: 60
+
+- name: Kitchen Accent Yellow
+  entities:
+       light.flux_kitchen_light:
+           state: on
+           color_name: 'Yellow'
+           brightness: 255
+
+- name: Kitchen Accent Yellow Dim
+  entities:
+       light.flux_kitchen_light:
+           state: on
+           color_name: 'Yellow'
+           brightness: 60
+
+- name: Kitchen Accent Orange
+  entities:
+       light.flux_kitchen_light:
+           state: on
+           color_name: 'Orange'
+           brightness: 255
+
+- name: Kitchen Accent Orange Dim
+  entities:
+       light.flux_kitchen_light:
+           state: on
+           color_name: 'Orange'
+           brightness: 60
+
+- name: Kitchen Accent Purple
+  entities:
+       light.flux_kitchen_light:
+           state: on
+           color_name: 'Purple'
+           brightness: 255
+
+- name: Kitchen Accent Purple Dim
+  entities:
+       light.flux_kitchen_light:
+           state: on
+           color_name: 'Purple'
+           brightness: 60
+
+- name: Kitchen Accent Off
+  entities:
+      light.flux_kitchen_light:
+          state: off

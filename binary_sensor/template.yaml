@@ -1,0 +1,17 @@
+############################################################
+#
+# Template Binary Sensors
+#
+############################################################
+
+- platform: template
+  sensors:
+    front_door_motion:
+      value_template: '{{ states.input_boolean.front_door_motion_detected.state }}'
+      friendly_name: 'Front Door Motion'
+
+- platform: template
+  sensors:
+    front_yard_motion:
+      value_template: '{{ states.input_boolean.front_yard_motion_detected.state }}'
+      friendly_name: 'Front Yard Motion'

@@ -1,0 +1,78 @@
+############################################################
+#
+# Entry Light Automations
+#
+############################################################
+
+############################################################
+# Changes the brightness level of the entry way light based on the input slider values.
+############################################################
+- alias: Input Slider Entry Light
+  trigger:
+    platform: state
+    entity_id: input_slider.entry_brightness
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.entry
+        brightness: '{{ trigger.to_state.state | int }}'
+
+############################################################
+# Turns on the entry way light when the door is unlocked before 10:00 at night.
+############################################################
+- alias: Turn On Entry Light When Door Is Unlocked
+  trigger:
+    - platform: state
+      entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+      to: "19"
+    - platform: state
+      entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+      to: "22"
+    - platform: state
+      entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+      to: "25"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+      - condition: state
+        entity_id: light.entry
+        state: 'off'
+      - condition: time
+        before: '22:00:00'
+  action:
+    - service: script.turn_on
+      data:
+        entity_id: script.turn_on_entry_light_and_start_off_timer
+
+############################################################
+# Turns on the entry way light dimmed when the door is unlocked after 10:00 at night.
+############################################################
+- alias: Turn On Entry Light Dimmed When Door Is Unlocked
+  trigger:
+    - platform: state
+      entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+      to: "19"
+    - platform: state
+      entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+      to: "22"
+    - platform: state
+      entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
+      to: "25"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+      - condition: state
+        entity_id: light.entry
+        state: 'off'
+      - condition: time
+        after: '22:00:00'
+  action:
+    - service: script.turn_on
+      data:
+        entity_id: script.turn_on_entry_light_dimmed_and_start_off_timer

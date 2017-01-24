@@ -1,0 +1,24 @@
+############################################################
+#
+# Entry Scenes
+#
+############################################################
+
+- name: Entry off
+  entities:
+      light.entry:
+          state: off
+
+- name: Entry dim
+  entities:
+      light.entry:
+          state: on
+          transition: 2
+          brightness: 100
+
+- name: Entry full
+  entities:
+      light.entry:
+          state: on
+          transition: 2
+          brightness: 254

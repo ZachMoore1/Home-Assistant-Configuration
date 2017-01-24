@@ -1,0 +1,83 @@
+############################################################
+#
+# Global Groups
+#
+############################################################
+
+global_all_light_automations:
+  name: "All Light Automations"
+  entities:
+    - automation.sun_turn_on_bedroom_light_at_sunset
+    - automation.presence_turn_on_bedroom_light_when_zphone_gets_home
+    - automation.presence_turn_off_bedroom_light_when_zphone_is_away
+    - automation.sun_turn_on_bedroom_light_if_overcast
+    - automation.sun_turn_off_lights_during_the_day
+    - automation.presence_turn_off_all_lights_if_nobody_is_home
+    - automation.motion_sensor_turn_on_kitchen_lights_when_there_is_movement
+    - automation.motion_sensor_turn_on_kitchen_lights_dimmed_when_there_is_movement
+    - automation.motion_sensor_turn_on_kitchen_lights_when_door_is_unlocked
+    - automation.motion_sensor_turn_on_kitchen_lights_dimmed_when_door_is_unlocked
+    - automation.motion_sensor_turn_on_kitchen_lights_when_there_is_movement_hallway
+    - automation.motion_sensor_turn_on_kitchen_lights_dimmed_when_there_is_movement_hallway
+    - automation.motion_sensor_turn_off_kitchen_lights_when_there_is_no_movement
+    - automation.motion_sensor_turn_off_kitchen_lights_when_there_is_no_occupancy
+    - automation.sun_turn_off_outside_lights_at_sunrise
+    - automation.sun_turn_on_outside_lights_at_sunset
+    - automation.motion_sensor_turn_on_outside_lights_when_motion_is_detected_at_front_door
+    - automation.sun_turn_off_outside_lights_after_8pm_if_everyone_is_home
+    - automation.presence_turn_on_front_porch_light_for_5_minutes_on_jphones_arrival
+    - automation.front_door_turn_on_front_porch_light_for_5_minutes_when_door_is_unlocked
+    - automation.presence_turn_on_front_porch_light_for_5_minutes_on_mynt_trackers_arrival
+    - automation.presence_turn_on_front_porch_light_for_5_minutes_on_zphones_arrival
+    - automation.front_door_turn_on_garage_south_light_for_5_minutes_when_door_is_unlocked
+    - automation.presence_turn_on_garage_south_light_for_5_minutes_on_zphones_arrival
+    - automation.presence_turn_on_garage_south_light_for_5_minutes_on_jphones_arrival
+    - automation.presence_turn_on_garage_south_light_for_5_minutes_on_mynt_trackers_arrival
+    - automation.front_door_turn_on_garage_north_light_for_5_minutes_when_door_is_unlocked
+    - automation.presence_turn_on_garage_north_light_for_5_minutes_on_zphones_arrival
+    - automation.presence_turn_on_garage_north_light_for_5_minutes_on_mynt_trackers_arrival
+    - automation.presence_turn_on_garage_north_light_for_5_minutes_on_jphones_arrival
+
+global_garage_lights:
+  name: "Garage"
+  icon: mdi:lightbulb
+  entities:
+    - light.garage_door_north
+    - light.garage_door_south
+
+global_outside_lights:
+  name: "Outside Lights"
+  entities:
+    - light.garage_door_north
+    - light.garage_door_south
+    - light.front_porch
+    - switch.back_patio_switch_11_0
+
+global_outside_light_automations:
+  name: "Outside Light Automations"
+  entities:
+    - automation.sun_turn_off_outside_lights_at_sunrise
+    - automation.sun_turn_on_outside_lights_at_sunset
+    - automation.motion_sensor_turn_on_outside_lights_when_motion_is_detected_at_front_door
+    - automation.sun_turn_off_outside_lights_after_8pm_if_everyone_is_home
+    - automation.presence_turn_on_front_porch_light_for_5_minutes_on_jphones_arrival
+    - automation.front_door_turn_on_front_porch_light_for_5_minutes_when_door_is_unlocked
+    - automation.presence_turn_on_front_porch_light_for_5_minutes_on_mynt_trackers_arrival
+    - automation.presence_turn_on_front_porch_light_for_5_minutes_on_zphones_arrival
+    - automation.front_door_turn_on_garage_south_light_for_5_minutes_when_door_is_unlocked
+    - automation.presence_turn_on_garage_south_light_for_5_minutes_on_zphones_arrival
+    - automation.presence_turn_on_garage_south_light_for_5_minutes_on_jphones_arrival
+    - automation.presence_turn_on_garage_south_light_for_5_minutes_on_mynt_trackers_arrival
+    - automation.front_door_turn_on_garage_north_light_for_5_minutes_when_door_is_unlocked
+    - automation.presence_turn_on_garage_north_light_for_5_minutes_on_zphones_arrival
+    - automation.presence_turn_on_garage_north_light_for_5_minutes_on_mynt_trackers_arrival
+    - automation.presence_turn_on_garage_north_light_for_5_minutes_on_jphones_arrival
+
+global_weather:
+  name: "Weather"
+  entities:
+    - sensor.dark_sky_summary
+    - sensor.dark_sky_minutely_summary
+    - sensor.dark_sky_temperature
+    - sensor.dark_sky_daily_high_temperature
+    - sensor.dark_sky_daily_low_temperature

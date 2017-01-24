@@ -1,0 +1,57 @@
+############################################################
+#
+# Motion Detection Event Automations
+#
+############################################################
+
+############################################################
+# Turns on the input boolean when the front_door_motion_detected event is received.
+############################################################
+- alias: Turn on front door motion detected boolean on event
+  trigger:
+    - platform: event
+      event_type: front_door_motion_detected
+      event_data:
+        state: 'on'
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.front_door_motion_detected
+
+############################################################
+# Turns off the input boolean when the front_door_motion_detected event is received.
+############################################################
+- alias: Turn off front door motion detected boolean on event
+  trigger:
+    - platform: event
+      event_type: front_door_motion_detected
+      event_data:
+        state: 'off'
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.front_door_motion_detected
+
+############################################################
+# Turns on the input boolean when the front_yard_motion_detected event is received.
+############################################################
+- alias: Turn on front yard motion detected boolean on event
+  trigger:
+    - platform: event
+      event_type: front_yard_motion_detected
+      event_data:
+        state: 'on'
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.front_yard_motion_detected
+
+############################################################
+# Turns off the input boolean when the front_yard_motion_detected event is received.
+############################################################
+- alias: Turn off front yard motion detected boolean on event
+  trigger:
+    - platform: event
+      event_type: front_yard_motion_detected
+      event_data:
+        state: 'off'
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.front_yard_motion_detected

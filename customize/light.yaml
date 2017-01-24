@@ -1,0 +1,37 @@
+###########################################################
+#
+# Light Customizations
+#
+############################################################
+
+light.entry:
+  icon: mdi:lightbulb-on
+
+light.flux_kitchen_light:
+  friendly_name: 'Kitchen Accent Lighting'
+  icon: mdi:led-on
+
+light.front_porch:
+  icon: mdi:lightbulb-on
+
+light.garage_door_north:
+  icon: mdi:lightbulb-on
+
+light.garage_door_south:
+  icon: mdi:lightbulb-on
+
+light.hallway:
+  icon: mdi:lightbulb-on
+
+light.linear_wd500z1_wall_dimmer_switch_level_9_0:
+  emulated_hue: true
+  emulated_hue_name: "bedroom light"
+  friendly_name: 'Bedroom'
+  homebridge_name: "Bedroom"
+  icon: mdi:white-balance-incandescent
+
+light.indoor_lights:
+  hidden: true
+
+light.outdoor_lights:
+  hidden: true

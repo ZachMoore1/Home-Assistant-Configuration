@@ -1,0 +1,9 @@
+###########################################################
+#
+# Climate Customizations
+#
+############################################################
+
+climate.hallway__ecobee:
+  friendly_name: 'Ecobee Thermostat'
+  icon: mdi:fan

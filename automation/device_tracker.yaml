@@ -1,0 +1,181 @@
+############################################################
+#
+# Device Tracker Automations
+#
+############################################################
+
+############################################################
+# Sets the device tracker state for the mynt tracker to away.
+############################################################
+- alias: Set mynt tracker away
+  trigger:
+    - platform: state
+      entity_id: sensor.mynt_tracker
+      to: 'away'
+  action:
+    - service: device_tracker.see
+      data:
+        dev_id: mynt_tracker
+        location_name: not_home
+
+############################################################
+# Sets the device tracker state for the mynt tracker to home.
+############################################################
+- alias: Set mynt tracker home
+  trigger:
+    - platform: state
+      entity_id: sensor.mynt_tracker
+      from: 'away'
+  action:
+    - service: device_tracker.see
+      data:
+        dev_id: mynt_tracker
+        location_name: home
+
+############################################################
+# Starts the mynt tracker away timer when it's state changes to away.
+############################################################
+- alias: Start mynt tracker away timer
+  trigger:
+    - platform: state
+      entity_id: device_tracker.mynt_tracker
+      from: 'home'
+      to: 'not_home'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.start_mynt_tracker_away_timer
+
+############################################################
+# Turns off the mynt tracker away timer if it's running and sets the input boolean to home
+# when it arrives home.  Used to avoid false away states by giving it a buffer time.
+############################################################
+- alias: Set mynt tracker state to home
+  trigger:
+    - platform: state
+      entity_id: device_tracker.mynt_tracker
+      from: 'not_home'
+      to: 'home'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.set_mynt_tracker_home
+
+############################################################
+# Starts the jphone away timer when it's state changes to away.
+############################################################
+- alias: Start jphone away timer
+  trigger:
+    - platform: state
+      entity_id: device_tracker.hass_mqtt_jphone
+      from: 'home'
+      to: 'not_home'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.start_jphone_away_timer
+
+############################################################
+# Turns off the jphone away timer if it's running and sets the input boolean to home
+# when it arrives home.  Used to avoid false away states by giving it a buffer time.
+############################################################
+- alias: Set jphone state to home
+  trigger:
+    - platform: state
+      entity_id: device_tracker.hass_mqtt_jphone
+      from: 'not_home'
+      to: 'home'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.set_jphone_home
+
+############################################################
+# Starts the zphone away timer when it's state changes to away.
+############################################################
+- alias: Start zphone away timer
+  trigger:
+    - platform: state
+      entity_id: device_tracker.hass_mqtt_zphone
+      from: 'home'
+      to: 'not_home'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.start_zphone_away_timer
+
+############################################################
+# Turns off the zphone away timer if it's running and sets the input boolean to home
+# when it arrives home.  Used to avoid false away states by giving it a buffer time.
+############################################################
+- alias: Set zphone state to home
+  trigger:
+    - platform: state
+      entity_id: device_tracker.hass_mqtt_zphone
+      from: 'not_home'
+      to: 'home'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.set_zphone_home
+
+############################################################
+# Checks to see if the mynt trackers status is away every 15 minutes and starts the away
+# timer if it is.  Used mainly to correct the away state if it changed while home assistant was
+# stopped.
+############################################################
+- alias: Verfiy mynt tracker away status
+  trigger:
+    platform: time
+    minutes: '/15'
+    seconds: 0
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: 'input_boolean.mynt_tracker_away_status'
+        state: 'off'
+      - condition: state
+        entity_id: 'device_tracker.mynt_tracker'
+        state: 'not_home'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.start_mynt_tracker_away_timer
+
+############################################################
+# Checks to see if the jphone status is away every 15 minutes and starts the away timer if
+# it is.  Used mainly to correct the away state if it changed while home assistant was stopped.
+############################################################
+- alias: Verfiy jphone away status
+  trigger:
+    platform: time
+    minutes: '/15'
+    seconds: 0
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: 'input_boolean.jphone_away_status'
+        state: 'off'
+      - condition: state
+        entity_id: 'device_tracker.hass_mqtt_jphone'
+        state: 'not_home'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.start_jphone_away_timer
+
+############################################################
+# Checks to see if the zphone status is away every 15 minutes and starts the away timer if
+# it is.  Used mainly to correct the away state if it changed while home assistant was stopped.
+############################################################
+- alias: Verfiy zphone away status
+  trigger:
+    platform: time
+    minutes: '/15'
+    seconds: 0
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: 'input_boolean.zphone_away_status'
+        state: 'off'
+      - condition: state
+        entity_id: 'device_tracker.hass_mqtt_zphone'
+        state: 'not_home'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.start_zphone_away_timer

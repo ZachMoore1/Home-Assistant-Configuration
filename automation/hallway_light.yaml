@@ -1,0 +1,60 @@
+############################################################
+#
+# Hallway Light Automations
+#
+############################################################
+
+############################################################
+# Turns on the hallway light dimmed when motion is detected by the hallway motion sensor
+# at night.
+############################################################
+- alias: Turn on hallway light dimmed when there is movement
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_02_sensor_15_0
+      from: 'off'
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+      - condition: state
+        entity_id: light.hallway
+        state: 'off'
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.hallway_dim
+
+############################################################
+# Turns off the hallway light if it's on when the hallway motion sensor turns off.
+############################################################
+- alias: Turn off hallway light when there is no movement
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_02_sensor_15_0
+      from: 'on'
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: light.hallway
+      state: 'on'
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.hallway_off
+
+############################################################
+# Changes the brightness level of the hallway light based on the input slider values.
+############################################################
+- alias: Input Slider Hallway Light
+  trigger:
+    platform: state
+    entity_id: input_slider.hallway_brightness
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.hallway
+        brightness: '{{ trigger.to_state.state | int }}'

@@ -1,0 +1,27 @@
+###########################################################
+#
+# Script Customizations
+#
+############################################################
+
+script.movie_time:
+  emulated_hue: true
+  emulated_hue_name: "movie time"
+
+script.set_alarm_armed_away:
+  icon: mdi:bell
+
+script.set_alarm_armed_home:
+  icon: mdi:security-home
+
+script.set_alarm_disarmed:
+  icon: mdi:bell-off
+
+script.harmony_mute:
+  icon: mdi:volume-off
+
+script.harmony_volume_down:
+  icon: mdi:volume-medium
+
+script.harmony_volume_up:
+  icon: mdi:volume-high
