@@ -47,6 +47,7 @@ system_monitoring_view_links:
     - weblink.plexpy
     - weblink.sonarr
     - weblink.unraid_server
+    - script.update_config
 
 system_monitoring_view_network:
   name:  "Network"

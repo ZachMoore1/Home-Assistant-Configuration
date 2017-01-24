@@ -1,0 +1,13 @@
+############################################################
+#
+# Misc Scripts
+#
+############################################################
+
+############################################################
+# Update the config from Git and restart home assistant.
+############################################################
+update_config:
+  sequence:
+    - service: shell_command.get_latest_config
+    - service: homeassistant.restart

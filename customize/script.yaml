@@ -25,3 +25,7 @@ script.harmony_volume_down:
 
 script.harmony_volume_up:
   icon: mdi:volume-high
+
+script.update_config:
+  friendly_name: 'Update config and restart'
+  icon: mdi:refresh
