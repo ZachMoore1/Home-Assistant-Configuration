@@ -23,11 +23,11 @@ outside_view_group:
   name:  "Outside"
   control: hidden
   entities:
-    - sensor.dark_sky_temperature
-    - light.garage_door_north
-    - light.garage_door_south
-    - light.front_porch
     - switch.back_patio_switch_11_0
     - binary_sensor.back_yard_motion
     - binary_sensor.front_door_motion
+    - light.front_porch
     - binary_sensor.front_yard_motion
+    - light.garage_door_north
+    - light.garage_door_south
+    - sensor.dark_sky_temperature
