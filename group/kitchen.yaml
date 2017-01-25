@@ -18,7 +18,6 @@ kitchen_view_accent_light_automations:
     - automation.turn_on_kitchen_accent_light_when_door_unlocked_or_motion_detected
     - automation.turn_on_kitchen_accent_light_dimmed_when_door_unlocked_or_motion_detected
     - automation.turn_off_kitchen_accent_light_when_there_is_no_movement
-    - automation.turn_off_kitchen_accent_light_when_there_is_no_occupancy
 
 kitchen_view_group:
   name:  "Kitchen"
@@ -38,4 +37,3 @@ kitchen_view_light_automations:
     - automation.turn_on_kitchen_accent_light_dimmed_when_kitchen_switch_turns_off
     - automation.turn_off_kitchen_accent_light_when_kitchen_switch_turns_on
     - automation.turn_off_kitchen_light_when_there_is_no_movement
-    - automation.turn_off_kitchen_light_when_there_is_no_occupancy
