@@ -19,11 +19,11 @@ system_monitoring_view:
 system_monitoring_view_battery_sensors:
   name:  "Battery Sensors"
   entities:
-    - sensor.front_door_lock_battery
-    - sensor.motion_sensor_battery
-    - sensor.motion_sensor_02_battery
     - sensor.back_door_sensor_battery
     - sensor.doorbell_sensor_battery
+    - sensor.motion_sensor_battery
+    - sensor.front_door_lock_battery
+    - sensor.motion_sensor_02_battery
 
 system_monitoring_view_beast_server:
   name:  "Beast Server"
@@ -69,10 +69,10 @@ system_monitoring_view_plex_monitor:
   name:  "Plex Monitor"
   entities:
     - sensor.plex
-    - sensor.plex_state_z
+    - sensor.plex_state_g
     - sensor.plex_state_remote
     - sensor.plex_state_j
-    - sensor.plex_state_g
+    - sensor.plex_state_z
 
 system_monitoring_view_raspberry_pi:
   name:  "Raspberry Pi"
