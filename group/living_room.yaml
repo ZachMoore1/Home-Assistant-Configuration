@@ -21,10 +21,9 @@ living_room_view_group:
   name:  "Living Room"
   control: hidden
   entities:
-    - binary_sensor.hallway__ecobee_occupancy
-    - sensor.living_room_temperature
+    - binary_sensor.back_door_sensor_14_0
     - light.hallway
     - binary_sensor.motion_02_sensor_15_0
-    - binary_sensor.back_door_sensor_14_0
-    - switch.back_patio_switch_11_0
     - sensor.tv_living_room_state
+    - binary_sensor.hallway__ecobee_occupancy
+    - sensor.living_room_temperature
