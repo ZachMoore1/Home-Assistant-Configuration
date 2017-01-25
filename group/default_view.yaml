@@ -24,9 +24,9 @@ default_view_climate:
     - sensor.hallway__ecobee_humidity
     - sensor.dark_sky_humidity
     - sensor.dark_sky_temperature
-    - sensor.back_bedroom_temperature_2
+    - sensor.back_bedroom_temperature
     - sensor.hallway__ecobee_temperature
-    - sensor.bedroom_temperature_2
+    - sensor.bedroom_temperature
     - sensor.kitchen_temperature
 
 default_view_devices:

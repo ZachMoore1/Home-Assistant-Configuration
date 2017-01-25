@@ -26,7 +26,7 @@
   sensors:
     ibeacon_status:
       value_template: '{% if states.sensor.ibeacon.state == "back-yard" %}back yard{% else %}{{states.sensor.ibeacon.state}}{% endif %}'
-      friendly_name: !secret mqtt_room_ibeacon_name
+      friendly_name: !secret beacon_name
 
 - platform: template
   sensors:
@@ -174,14 +174,14 @@
 
 - platform: template
   sensors:
-    back_bedroom_temperature:
-      value_template: '{{ states.sensor.bedroom__back_bedroom_temperature.state }}'
+    back_bedroom_temp:
+      value_template: '{{ states.sensor.back_bedroom_temperature.state }}'
       friendly_name: 'Temperature'
 
 - platform: template
   sensors:
-    bedroom_temperature:
-      value_template: '{{ states.sensor.bedroom__bedroom_temperature.state }}'
+    bedroom_temp:
+      value_template: '{{ states.sensor.bedroom_temperature.state }}'
       friendly_name: 'Temperature'
 
 - platform: template

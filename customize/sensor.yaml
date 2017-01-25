@@ -133,10 +133,12 @@ sensor.kitchen_occupancy:
   icon: mdi:human-handsup
 
 sensor.bedroom_temperature:
-  friendly_name: "Bedroom"
+  friendly_name: !secret bedroom_name
+  icon: mdi:thermometer
 
 sensor.back_bedroom_temperature:
-  friendly_name: "Back Bedroom"
+  friendly_name: !secret back_bedroom_name
+  icon: mdi:thermometer
 
 sensor.plex:
   friendly_name: "Watching Plex"

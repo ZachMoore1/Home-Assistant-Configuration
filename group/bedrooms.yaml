@@ -17,7 +17,7 @@ bedrooms_view_back_bedroom:
   name: !secret back_bedroom_name
   entities:
     - binary_sensor.back_bedroom_occupancy
-    - sensor.back_bedroom_temperature_2
+    - sensor.back_bedroom_temp
 
 bedrooms_view_harmony_control:
   name:  "Harmony Control"
@@ -32,7 +32,7 @@ bedrooms_view_bedroom:
   name: !secret bedroom_name
   entities:
     - binary_sensor.bedroom_occupancy
-    - sensor.bedroom_temperature_2
+    - sensor.bedroom_temp
 
 bedrooms_view_master:
   name: !secret master_bedroom_name

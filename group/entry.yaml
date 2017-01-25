@@ -25,6 +25,7 @@ entry_view_group:
   entities:
     - light.entry 
     - lock.kwikset_touchpad_electronic_deadbolt_locked_8_0
+    - binary_sensor.motion_sensor_2_0
     - sensor.doorbell_active
 
 entry_view_light_automations:

@@ -5,7 +5,7 @@
 ############################################################
 
 binary_sensor.motion_sensor_2_0:
-  friendly_name: 'Kitchen Motion'
+  friendly_name: 'Entry Motion'
   icon: mdi:run
   sensor_class: motion
 
@@ -28,12 +28,12 @@ binary_sensor.kitchen_occupancy:
   icon: mdi:human-handsup
   sensor_class: occupancy
 
-binary_sensor.bedroom__bedroom_occupancy:
+binary_sensor.bedroom_occupancy:
   friendly_name: "Occupancy"
   icon: mdi:human-handsup
   sensor_class: occupancy
 
-binary_sensor.bedroom__back_bedroom_occupancy:
+binary_sensor.back_bedroom_occupancy:
   friendly_name: "Occupancy"
   icon: mdi:human-handsup
   sensor_class: occupancy
