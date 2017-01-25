@@ -12,10 +12,10 @@ reset_back_patio_light_off_timer:
   sequence:
     - service: script.turn_off
       data:
-        entity_id: script.timed_back_patio_light_off_timer
+        entity_id: script.back_patio_light_off_timer
     - service: script.turn_on
       data:
-        entity_id: script.timed_back_patio_light_off_timer
+        entity_id: script.back_patio_light_off_timer
 
 ############################################################
 # Turn off the back patio light switch after a 5 minute delay.
