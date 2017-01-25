@@ -24,11 +24,11 @@ kitchen_view_group:
   name:  "Kitchen"
   control: hidden
   entities:
-    - binary_sensor.kitchen_occupancy
-    - sensor.kitchen_temp
-    - binary_sensor.kitchen_motion
     - switch.kitchen_switch_10_0
     - light.flux_kitchen_light
+    - binary_sensor.kitchen_motion
+    - binary_sensor.kitchen_occupancy
+    - sensor.kitchen_temp
 
 kitchen_view_light_automations:
   name:  "Kitchen Light Automations"
