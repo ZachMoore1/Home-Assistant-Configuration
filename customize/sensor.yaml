@@ -132,6 +132,12 @@ sensor.kitchen_temperature:
 sensor.kitchen_occupancy:
   icon: mdi:human-handsup
 
+sensor.bedroom_temp:
+  icon: mdi:thermometer
+
+sensor.back_bedroom_temp:
+  icon: mdi:thermometer
+
 sensor.bedroom_temperature:
   friendly_name: !secret bedroom_name
   icon: mdi:thermometer
