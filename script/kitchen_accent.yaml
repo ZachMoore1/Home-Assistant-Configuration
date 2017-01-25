@@ -37,16 +37,13 @@ turn_on_kitchen_accent_light_dimmed_and_start_off_timer:
         entity_id: script.kitchen_accent_light_off_timer
 
 ############################################################
-# Turns off the kitchen accent light after a 15 minute delay.
+# Turns off the kitchen accent light after a 5 minute delay.
 ############################################################
 kitchen_accent_light_off_timer:
-  alias: "Turn off kitchen accent light after 15 minutes"
+  alias: "Turn off kitchen accent light after 5 minutes"
   sequence:
     - delay:
-        minutes: 15
-    - condition: state
-      entity_id: binary_sensor.kitchen_occupancy
-      state: 'off'
+        minutes: 5
     - service: light.turn_off
       data:
         entity_id: light.flux_kitchen_light
