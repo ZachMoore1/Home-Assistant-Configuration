@@ -37,10 +37,10 @@ bedrooms_view_bedroom:
 bedrooms_view_master:
   name: !secret master_bedroom_name
   entities:
+    - binary_sensor.bedroom_motion
     - sensor.tv_bedroom_state
     - sensor.harmony_hub_activity
     - group.bedrooms_view_master_light
-    - binary_sensor.bedroom_motion
 
 bedrooms_view_master_light:
   name: "Light"
