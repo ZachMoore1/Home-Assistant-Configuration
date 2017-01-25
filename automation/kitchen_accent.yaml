@@ -20,7 +20,7 @@
       entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
       to: "25"
     - platform: state
-      entity_id: binary_sensor.motion_sensor_2_0
+      entity_id: binary_sensor.kitchen_motion
       from: 'off'
       to: 'on'
   condition:
@@ -55,7 +55,7 @@
       entity_id: sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_8_0
       to: "25"
     - platform: state
-      entity_id: binary_sensor.motion_sensor_2_0
+      entity_id: binary_sensor.kitchen_motion
       from: 'off'
       to: 'on'
   condition:
@@ -102,12 +102,12 @@
         entity_id: light.flux_kitchen_light
 
 ############################################################
-# Starts the kitchen accent light off timer when motion is no longer detected in the kitchen.
+# Restarts the kitchen accent light off timer when motion is no longer detected in the kitchen.
 ############################################################
 - alias: Turn off kitchen accent light when there is no movement
   trigger:
     - platform: state
-      entity_id: binary_sensor.motion_sensor_2_0
+      entity_id: binary_sensor.kitchen_motion
       from: 'on'
       to: 'off'
   condition:
@@ -120,27 +120,9 @@
         entity_id: light.flux_kitchen_light
         state: 'on'
   action:
-    service: homeassistant.turn_on
-    entity_id: script.kitchen_accent_light_off_timer
-
-############################################################
-# Starts the kitchen accent light off timer when occupancy is no longer detected in the kitchen.
-############################################################
-- alias: Turn off kitchen accent light when there is no occupancy
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.kitchen_occupancy
-      from: 'on'
-      to: 'off'
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: sun.sun
-        state: 'below_horizon'
-      - condition: state
-        entity_id: light.flux_kitchen_light
-        state: 'on'
-  action:
-    service: homeassistant.turn_on
-    entity_id: script.kitchen_accent_light_off_timer
+    - service: script.turn_off
+      data:
+        entity_id: script.kitchen_accent_light_off_timer
+    - service: script.turn_on
+      data:
+        entity_id: script.kitchen_accent_light_off_timer
