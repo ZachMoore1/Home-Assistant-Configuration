@@ -23,10 +23,10 @@ entry_view_group:
   name:  "Entry"
   control: hidden
   entities:
-    - light.entry 
-    - lock.kwikset_touchpad_electronic_deadbolt_locked_8_0
-    - binary_sensor.motion_sensor_2_0
     - sensor.doorbell_active
+    - light.entry
+    - binary_sensor.motion_sensor_2_0
+    - lock.kwikset_touchpad_electronic_deadbolt_locked_8_0
 
 entry_view_light_automations:
   name:  "Entry Light Automations"
