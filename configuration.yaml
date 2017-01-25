@@ -116,7 +116,6 @@ shell_command:
   kodi_doorbell_notification: sh /home/hass/.homeassistant/bin/kodi_doorbell_notification.sh
   take_pic_porch: curl -o /home/hass/.homeassistant/www/images/snapshot.jpg 'http://192.168.1.18:8765/picture/1/current/'
   get_latest_config: bash /home/hass/.homeassistant/bin/pullconfig.sh
-  restart_hass: bash /home/hass/.homeassistant/bin/restart-hass.sh
   
 weblink:
   entities:
