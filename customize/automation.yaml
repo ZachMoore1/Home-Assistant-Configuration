@@ -4,6 +4,18 @@
 #
 ############################################################
 
+automation.turn_on_bedroom_light_at_sunset:
+  icon: mdi:white-balance-incandescent
+
+automation.turn_on_bedroom_light_when_zphone_gets_home:
+  icon: mdi:white-balance-incandescent
+
+automation.turn_off_bedroom_light_when_zphone_leaves:
+  icon: mdi:white-balance-incandescent
+
+automation.turn_on_bedroom_light_if_overcast:
+  icon: mdi:white-balance-incandescent
+
 automation.trigger_alarm_while_armed_away:
   icon: mdi:bell-ring
 
@@ -49,14 +61,11 @@ automation.turn_on_entry_light_dimmed_when_door_is_unlocked:
 automation.turn_on_kitchen_accent_light_dimmed_when_kitchen_switch_turns_off:
   icon: mdi:led-off
 
-automation.turn_off_kitchen_accent_light_when_the_kitchen_switch_turns_on:
+automation.turn_off_kitchen_accent_light_when_kitchen_switch_turns_on:
   icon: mdi:led-variant-off
 
 automation.turn_on_kitchen_accent_light_when_kitchen_switch_turns_off:
   icon: mdi:led-on
-
-automation.turn_off_kitchen_light_when_there_is_no_occupancy:
-  icon: mdi:led-variant-off
 
 automation.turn_on_front_porch_light_when_motion_is_detected_at_front_door:
   icon: mdi:lightbulb-on
@@ -64,7 +73,7 @@ automation.turn_on_front_porch_light_when_motion_is_detected_at_front_door:
 automation.turn_off_hallway_light_when_there_is_no_movement:
   icon: mdi:lightbulb-outline
 
-automation.turn_off_kitchen_light_when_there_is_no_movement:
+automation.turn_off_kitchen_accent_light_when_there_is_no_movement:
   icon: mdi:led-variant-off
 
 automation.turn_on_hallway_light_dimmed_when_there_is_movement:
