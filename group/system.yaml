@@ -28,11 +28,11 @@ system_monitoring_view_battery_sensors:
 system_monitoring_view_beast_server:
   name:  "Beast Server"
   entities:
+    - sensor.beast_server_running_count
     - sensor.beast_server_cpu_usage
     - sensor.beast_server_disk_usage
     - sensor.beast_server_ram_usage
     - sensor.beast_server_swap_usage
-    - sensor.beast_server_running_count
 
 system_monitoring_view_links:
   name:  "Links"
