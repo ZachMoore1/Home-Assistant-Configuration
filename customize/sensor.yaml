@@ -104,7 +104,7 @@ sensor.front_door_lock_battery:
 
 sensor.motion_sensor_battery:
   icon: mdi:battery-charging-100
-  friendly_name: 'Motion Sensor Battery'
+  friendly_name: 'Entry Motion Sensor Battery'
 
 sensor.motion_sensor_02_battery:
   icon: mdi:battery-charging-100
