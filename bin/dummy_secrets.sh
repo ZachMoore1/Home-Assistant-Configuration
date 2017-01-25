@@ -33,6 +33,7 @@ echo "g_name: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
 echo "remote_name: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
 echo "j_name: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
 echo "z_name: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
+echo "beacon_name: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
 echo "zplex_value_template: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
 echo "remoteplex_value_template: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
 echo "jplex_value_template: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
