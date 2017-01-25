@@ -12,7 +12,7 @@ scene.hallway_dim:
   icon: mdi:brightness-6
   friendly_name: 'Dim'
 
-scene.hallway_normal:
+scene.hallway_full:
   icon: mdi:brightness-5
   friendly_name: 'Full'
 
@@ -24,7 +24,7 @@ scene.entry_dim:
   icon: mdi:brightness-6
   friendly_name: 'Dim'
 
-scene.entry_normal:
+scene.entry_full:
   icon: mdi:brightness-5
   friendly_name: 'Full'
 
@@ -32,7 +32,7 @@ scene.kitchen_off:
   icon: mdi:brightness-1
   friendly_name: 'Off'
 
-scene.kitchen_normal:
+scene.kitchen_full:
   icon: mdi:brightness-5
   friendly_name: 'Full'
 
@@ -40,7 +40,7 @@ scene.back_patio_off:
   icon: mdi:brightness-1
   friendly_name: 'Off'
 
-scene.back_patio_normal:
+scene.back_patio_full:
   icon: mdi:brightness-5
   friendly_name: 'Full'
 
@@ -52,7 +52,7 @@ scene.bedroom_dim:
   icon: mdi:brightness-6
   friendly_name: 'Dim'
 
-scene.bedroom_normal:
+scene.bedroom_full:
   icon: mdi:brightness-5
   friendly_name: 'Full'
 
@@ -64,7 +64,7 @@ scene.front_porch_dim:
   icon: mdi:brightness-6
   friendly_name: 'Dim'
 
-scene.front_porch_normal:
+scene.front_porch_full:
   icon: mdi:brightness-5
   friendly_name: 'Full'
 
@@ -76,7 +76,7 @@ scene.garage_dim:
   icon: mdi:brightness-6
   friendly_name: 'Dim'
 
-scene.garage_normal:
+scene.garage_full:
   icon: mdi:brightness-5
   friendly_name: 'Full'
 
