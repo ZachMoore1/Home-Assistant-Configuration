@@ -4,6 +4,9 @@
 #
 ############################################################
 
+automation.unlock_front_door_when_arriving_home:
+  icon: mdi:lock-open
+  
 automation.turn_on_bedroom_light_at_sunset:
   icon: mdi:white-balance-incandescent
 
