@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo systemctl restart home-assistant.service
+systemctl restart home-assistant.service
