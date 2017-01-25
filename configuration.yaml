@@ -66,10 +66,10 @@ alarm_control_panel:
 ecobee:
   api_key: !secret ecobee_api_key
 
-emulated_hue:
-  type: alexa
-  host_ip: 192.168.1.17
-  expose_by_default: false
+#emulated_hue:
+#  type: alexa
+#  host_ip: 192.168.1.17
+#  expose_by_default: false
 
 google:
   client_id: !secret google_client_id
