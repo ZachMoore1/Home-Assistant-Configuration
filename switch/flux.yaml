@@ -8,7 +8,7 @@
   lights:
     - light.flux_kitchen_light
   name: Fluxer
-  start_time: 'sunset'
+  start_time: '16:00'
   stop_time: '23:59'
   sunset_colortemp: 4000
   
