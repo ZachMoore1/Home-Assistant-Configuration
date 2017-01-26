@@ -28,6 +28,7 @@ kitchen_view_group:
     - binary_sensor.kitchen_motion
     - binary_sensor.kitchen_occupancy
     - sensor.kitchen_temp
+    - switch.fluxer
 
 kitchen_view_light_automations:
   name:  "Kitchen Light Automations"
