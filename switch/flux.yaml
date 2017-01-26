@@ -1,0 +1,14 @@
+############################################################
+#
+# Flux Switch
+#
+############################################################
+
+- platform: flux
+  lights:
+    - light.flux_kitchen_light
+  name: Fluxer
+  start_time: 'sunset'
+  stop_time: '23:59'
+  sunset_colortemp: 4000
+  
